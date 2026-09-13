@@ -79,7 +79,7 @@
 
     setVar("--blur-px", `${blurActive * 10}px`);
     setVar("--brightness", 1 - blurActive * 0.18);
-    setVar("--shade-alpha", blurActive * 0.55);
+    setVar("--shade-alpha", blurActive * 0.72);
 
     setVar("--title-y", `${introExit * -170}px`);
     setVar("--title-scale", 1 - introExit * 0.08);
@@ -95,10 +95,11 @@
 
     setVar("--split-left-x", `calc(-100% + ${-drift * 14}vw + ${mx * 10}px)`);
     setVar("--split-right-x", `calc(0% + ${drift * 14}vw + ${mx * 10}px)`);
-    setVar("--split-left-y", `${my * 8 - reveal.exit * 420}px`);
-    setVar("--split-right-y", `${my * 8 - reveal.exit * 420}px`);
+    setVar("--split-left-y", `calc(${(1 - reveal.enter) * 60}vh + ${my * 8 - reveal.exit * 420}px)`);
+    setVar("--split-right-y", `calc(${(1 - reveal.enter) * 60}vh + ${my * 8 - reveal.exit * 420}px)`);
     setVar("--split-left-scale", 1 + reveal.enter * 0.12 + reveal.exit * 0.1);
     setVar("--split-right-scale", 1 + reveal.enter * 0.12 + reveal.exit * 0.1);
+    setVar("--split-opacity", reveal.active);
 
     setVar("--panel-space-opacity", reveal.active);
     setVar("--panel-space-y", `calc(-50% + ${-reveal.exit * 70 + (1 - reveal.enter) * 48}px)`);

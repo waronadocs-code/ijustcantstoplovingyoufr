@@ -24,6 +24,7 @@
   --split-right-x: 0%;
   --split-right-y: 0px;
   --split-right-scale: 1;
+  --split-opacity: 0;
 
   --title-y: 0px;
   --title-scale: 1;
@@ -141,17 +142,19 @@ button, a { font: inherit; }
   pointer-events: none;
   opacity: var(--shade-opacity);
   background: linear-gradient(180deg,
-    rgba(var(--shade-tint), calc(var(--shade-alpha) * 0.9)) 0%,
-    rgba(var(--shade-tint), calc(var(--shade-alpha) * 0.55)) 45%,
-    rgba(var(--shade-tint), calc(var(--shade-alpha) * 1.1)) 100%);
+    rgba(var(--shade-tint), calc(var(--shade-alpha) * 0.85)) 0%,
+    rgba(var(--shade-tint), calc(var(--shade-alpha) * 0.92)) 45%,
+    rgba(var(--shade-tint), calc(var(--shade-alpha) * 1.05)) 100%);
 }
 
 .detail-img {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: min(56vw, 760px);
+  width: min(40vw, 480px);
   height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
   z-index: 3;
   border-radius: 22px;
   box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55);
@@ -163,11 +166,14 @@ button, a { font: inherit; }
 .split-left, .split-right {
   position: absolute;
   bottom: -2vh;
-  width: min(34vw, 440px);
+  width: min(26vw, 340px);
   height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
   z-index: 4;
   border-radius: 18px;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+  opacity: var(--split-opacity);
 }
 
 .split-left {
@@ -556,6 +562,66 @@ button, a { font: inherit; }
   pointer-events: auto;
   font-weight: 700;
   font-size: 14px;
+}
+
+/* ---------- gallery ---------- */
+
+.gallery-section {
+  position: relative;
+  z-index: 1;
+  background: #17110b;
+  padding: 90px 24px 0;
+  text-align: center;
+}
+
+.gallery-section h2 {
+  margin: 14px 0 40px;
+  color: var(--beige);
+  font-family: "Playfair Display", serif;
+  font-size: 2.6rem;
+  font-weight: 600;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.gallery-grid figure {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid rgba(201, 162, 39, 0.25);
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 400ms ease;
+}
+
+.gallery-grid figure:hover img { transform: scale(1.06); }
+
+.gallery-grid figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 14px 16px;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.75));
+  color: var(--beige);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+@media (max-width: 780px) {
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* ---------- book section (below the fold) ---------- */
