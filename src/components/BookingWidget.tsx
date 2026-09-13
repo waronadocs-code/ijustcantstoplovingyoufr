@@ -21,6 +21,7 @@ export default function BookingWidget({ onClose, className = "" }: Props) {
   const [guests, setGuests] = useState(2);
   const [confirmed, setConfirmed] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [reserveNotice, setReserveNotice] = useState(false);
 
   const today = useMemo(() => todayIso(), []);
 
@@ -33,6 +34,7 @@ export default function BookingWidget({ onClose, className = "" }: Props) {
     setCheckIn(value);
     setConfirmed(false);
     setError(null);
+    setReserveNotice(false);
     if (checkOut && value >= checkOut) {
       setCheckOut("");
     }
@@ -42,11 +44,13 @@ export default function BookingWidget({ onClose, className = "" }: Props) {
     setCheckOut(value);
     setConfirmed(false);
     setError(null);
+    setReserveNotice(false);
   }
 
   function adjustGuests(delta: number) {
     setGuests((g) => Math.min(property.maxGuests, Math.max(1, g + delta)));
     setConfirmed(false);
+    setReserveNotice(false);
   }
 
   function handleCheckAvailability() {
@@ -71,14 +75,15 @@ export default function BookingWidget({ onClose, className = "" }: Props) {
   }
 
   function handleReserve() {
-    const url = buildBookingUrl({ checkIn, checkOut, guests });
     if (!isBookingUrlConfigured()) {
+      setReserveNotice(true);
       // eslint-disable-next-line no-console
       console.warn(
         "MPI Hospitality: set property.bookingUrl in src/config/property.ts before going live."
       );
       return;
     }
+    const url = buildBookingUrl({ checkIn, checkOut, guests });
     window.location.href = url;
   }
 
@@ -230,13 +235,24 @@ export default function BookingWidget({ onClose, className = "" }: Props) {
               >
                 Reserve on Booking.com →
               </button>
-              <p
-                className={`mt-4 text-xs ${
-                  isModal ? "text-stone" : "text-beige-dark"
-                }`}
-              >
-                You&rsquo;ll complete your reservation securely on Booking.com.
-              </p>
+              {reserveNotice ? (
+                <p
+                  className={`mt-4 text-xs ${
+                    isModal ? "text-ink" : "text-ivory"
+                  }`}
+                >
+                  Online booking is launching shortly — please check back soon,
+                  or contact us directly to reserve this stay.
+                </p>
+              ) : (
+                <p
+                  className={`mt-4 text-xs ${
+                    isModal ? "text-stone" : "text-beige-dark"
+                  }`}
+                >
+                  You&rsquo;ll complete your reservation securely on Booking.com.
+                </p>
+              )}
             </div>
           </motion.div>
         )}
