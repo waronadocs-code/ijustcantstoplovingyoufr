@@ -9,8 +9,8 @@ import entranceWardrobe from "../assets/property/entrance-wardrobe.jpg";
 import entranceCorridor01 from "../assets/property/entrance-corridor-01.jpg";
 import entranceCorridor02 from "../assets/property/entrance-corridor-02.jpg";
 import heroPosterImage from "../assets/property/hero-poster.jpg";
-import heroLoopVideoMp4 from "../assets/video/hero-loop.mp4";
-import heroLoopVideoWebm from "../assets/video/hero-loop.webm";
+import heroVideoMp4 from "../assets/video/hero-full.mp4";
+import heroVideoWebm from "../assets/video/hero-full.webm";
 
 /**
  * Every image on the site is sourced from this file. Replace the imports
@@ -29,10 +29,10 @@ export type GalleryImage = {
 /** Poster frame shown before the hero video loads, and for reduced-motion visitors. */
 export const heroImage = heroPosterImage;
 
-/** Muted, looping ambient clip for the hero background (WebM first, MP4 fallback). */
+/** Muted, looping walkthrough clip for the hero background (WebM first, MP4 fallback). */
 export const heroVideo = {
-  webm: heroLoopVideoWebm,
-  mp4: heroLoopVideoMp4,
+  webm: heroVideoWebm,
+  mp4: heroVideoMp4,
 };
 
 export const introImage = livingBrickWide;

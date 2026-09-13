@@ -21,7 +21,7 @@ export default function Hero({ onOpenBooking }: Props) {
           loop
           playsInline
           poster={heroImage}
-          className="hero-zoom w-full h-full object-cover motion-reduce:hidden"
+          className="w-full h-full object-cover motion-reduce:hidden"
         >
           <source src={heroVideo.webm} type="video/webm" />
           <source src={heroVideo.mp4} type="video/mp4" />
