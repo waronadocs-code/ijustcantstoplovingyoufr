@@ -8,6 +8,9 @@ import kitchenCounter from "../assets/property/kitchen-counter.jpg";
 import entranceWardrobe from "../assets/property/entrance-wardrobe.jpg";
 import entranceCorridor01 from "../assets/property/entrance-corridor-01.jpg";
 import entranceCorridor02 from "../assets/property/entrance-corridor-02.jpg";
+import heroPosterImage from "../assets/property/hero-poster.jpg";
+import heroLoopVideoMp4 from "../assets/video/hero-loop.mp4";
+import heroLoopVideoWebm from "../assets/video/hero-loop.webm";
 
 /**
  * Every image on the site is sourced from this file. Replace the imports
@@ -23,9 +26,16 @@ export type GalleryImage = {
   span?: "large" | "small" | "portrait" | "full" | "half";
 };
 
-export const heroImage = livingBrickWide;
+/** Poster frame shown before the hero video loads, and for reduced-motion visitors. */
+export const heroImage = heroPosterImage;
 
-export const introImage = loungeCorner;
+/** Muted, looping ambient clip for the hero background (WebM first, MP4 fallback). */
+export const heroVideo = {
+  webm: heroLoopVideoWebm,
+  mp4: heroLoopVideoMp4,
+};
+
+export const introImage = livingBrickWide;
 
 export const spaceImages = {
   main: tvBrickWall,

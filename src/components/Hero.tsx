@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { heroImage } from "../data/gallery";
+import { heroImage, heroVideo } from "../data/gallery";
 import { property } from "../config/property";
 
 type Props = {
@@ -15,10 +15,21 @@ export default function Hero({ onOpenBooking }: Props) {
         transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1] }}
         className="absolute inset-0"
       >
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={heroImage}
+          className="hero-zoom w-full h-full object-cover motion-reduce:hidden"
+        >
+          <source src={heroVideo.webm} type="video/webm" />
+          <source src={heroVideo.mp4} type="video/mp4" />
+        </video>
         <img
           src={heroImage}
           alt="MPI Hospitality — 377 Jack Hindon private room"
-          className="w-full h-full object-cover"
+          className="hero-zoom hidden w-full h-full object-cover motion-reduce:block"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-ink/20" />
       </motion.div>
