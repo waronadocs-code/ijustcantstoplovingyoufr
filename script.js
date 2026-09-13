@@ -208,11 +208,18 @@
   setupSightSlider();
   requestTick();
 
-  /* ---------- rate-your-stay widget (per-visitor, stored locally) ---------- */
+  /* ---------- rate-your-stay form (submits to Formspree) ---------- */
+
+  // TODO: replace with your real Formspree form endpoint, e.g. "https://formspree.io/f/abcdwxyz"
+  // Sign up free at https://formspree.io, create a form, and paste its endpoint here.
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID";
 
   const RATING_KEY = "jackHindonRatingV1";
+  const ratingForm = document.getElementById("rating-form");
   const starButtons = document.querySelectorAll(".star-btn");
+  const ratingValueInput = document.getElementById("rating-value");
   const ratingFeedback = document.querySelector(".rating-feedback");
+  const ratingSubmitBtn = ratingForm ? ratingForm.querySelector(".form-submit") : null;
 
   function paintStars(value) {
     starButtons.forEach((btn) => {
@@ -222,11 +229,10 @@
     });
   }
 
-  function setRatingFeedback(value) {
+  function setRatingFeedback(text, isError) {
     if (!ratingFeedback) return;
-    ratingFeedback.textContent = value
-      ? `Thanks for rating your stay ${value} / 5. Tap a star to change it.`
-      : "";
+    ratingFeedback.textContent = text || "";
+    ratingFeedback.classList.toggle("is-error", Boolean(isError));
   }
 
   function loadRating() {
@@ -243,14 +249,14 @@
     try {
       localStorage.setItem(RATING_KEY, JSON.stringify({ value, ts: Date.now() }));
     } catch (e) {
-      // localStorage unavailable (private browsing, etc.) — rating still displays for this visit
+      // localStorage unavailable (private browsing, etc.) — form still works for this visit
     }
   }
 
   if (starButtons.length) {
     let currentRating = loadRating();
     paintStars(currentRating);
-    setRatingFeedback(currentRating);
+    if (ratingValueInput) ratingValueInput.value = currentRating || "";
 
     starButtons.forEach((btn) => {
       const v = Number(btn.dataset.value);
@@ -261,9 +267,46 @@
       btn.addEventListener("click", () => {
         currentRating = v;
         paintStars(v);
-        setRatingFeedback(v);
-        saveRating(v);
+        if (ratingValueInput) ratingValueInput.value = v;
+        setRatingFeedback("");
       });
+    });
+  }
+
+  if (ratingForm) {
+    ratingForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const rating = Number(ratingValueInput && ratingValueInput.value);
+      if (!rating) {
+        setRatingFeedback("Please choose a star rating first.", true);
+        return;
+      }
+
+      if (ratingSubmitBtn) ratingSubmitBtn.disabled = true;
+      setRatingFeedback("Sending…", false);
+
+      try {
+        const response = await fetch(FORMSPREE_ENDPOINT, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(ratingForm),
+        });
+
+        if (response.ok) {
+          saveRating(rating);
+          setRatingFeedback(`Thanks for rating your stay ${rating} / 5!`, false);
+          ratingForm.reset();
+          paintStars(rating);
+          if (ratingValueInput) ratingValueInput.value = rating;
+        } else {
+          setRatingFeedback("Something went wrong sending your rating. Please try again.", true);
+        }
+      } catch (err) {
+        setRatingFeedback("Couldn't reach the server — check your connection and try again.", true);
+      } finally {
+        if (ratingSubmitBtn) ratingSubmitBtn.disabled = false;
+      }
     });
   }
 })();

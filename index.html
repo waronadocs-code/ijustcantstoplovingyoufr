@@ -180,14 +180,27 @@
     <span class="book-kicker">Your Feedback</span>
     <h2>Rate Your Stay</h2>
     <p class="rating-intro">Already stayed with us? Let us know how it went.</p>
-    <div class="star-rating" role="radiogroup" aria-label="Star rating out of 5">
-      <button type="button" class="star-btn" data-value="1" role="radio" aria-checked="false" aria-label="1 star">★</button>
-      <button type="button" class="star-btn" data-value="2" role="radio" aria-checked="false" aria-label="2 stars">★</button>
-      <button type="button" class="star-btn" data-value="3" role="radio" aria-checked="false" aria-label="3 stars">★</button>
-      <button type="button" class="star-btn" data-value="4" role="radio" aria-checked="false" aria-label="4 stars">★</button>
-      <button type="button" class="star-btn" data-value="5" role="radio" aria-checked="false" aria-label="5 stars">★</button>
-    </div>
-    <p class="rating-feedback" aria-live="polite"></p>
+    <form class="rating-form" id="rating-form">
+      <div class="star-rating" role="radiogroup" aria-label="Star rating out of 5">
+        <button type="button" class="star-btn" data-value="1" role="radio" aria-checked="false" aria-label="1 star">★</button>
+        <button type="button" class="star-btn" data-value="2" role="radio" aria-checked="false" aria-label="2 stars">★</button>
+        <button type="button" class="star-btn" data-value="3" role="radio" aria-checked="false" aria-label="3 stars">★</button>
+        <button type="button" class="star-btn" data-value="4" role="radio" aria-checked="false" aria-label="4 stars">★</button>
+        <button type="button" class="star-btn" data-value="5" role="radio" aria-checked="false" aria-label="5 stars">★</button>
+      </div>
+      <input type="hidden" name="rating" id="rating-value" />
+      <div class="form-row">
+        <input type="text" name="name" class="form-input" placeholder="Your name (optional)" autocomplete="name" />
+      </div>
+      <div class="form-row">
+        <textarea name="message" class="form-textarea" rows="3" placeholder="Tell us about your stay (optional)"></textarea>
+      </div>
+      <button type="submit" class="btn-gold form-submit">
+        <span>Submit Rating</span>
+        <span aria-hidden="true">→</span>
+      </button>
+      <p class="rating-feedback" aria-live="polite"></p>
+    </form>
   </section>
 
   <section class="book-section" id="book" aria-label="Book this stay">
