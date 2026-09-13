@@ -207,4 +207,63 @@
 
   setupSightSlider();
   requestTick();
+
+  /* ---------- rate-your-stay widget (per-visitor, stored locally) ---------- */
+
+  const RATING_KEY = "jackHindonRatingV1";
+  const starButtons = document.querySelectorAll(".star-btn");
+  const ratingFeedback = document.querySelector(".rating-feedback");
+
+  function paintStars(value) {
+    starButtons.forEach((btn) => {
+      const v = Number(btn.dataset.value);
+      btn.classList.toggle("is-filled", v <= value);
+      btn.setAttribute("aria-checked", String(v === value));
+    });
+  }
+
+  function setRatingFeedback(value) {
+    if (!ratingFeedback) return;
+    ratingFeedback.textContent = value
+      ? `Thanks for rating your stay ${value} / 5. Tap a star to change it.`
+      : "";
+  }
+
+  function loadRating() {
+    try {
+      const raw = localStorage.getItem(RATING_KEY);
+      if (!raw) return 0;
+      return Number(JSON.parse(raw).value) || 0;
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function saveRating(value) {
+    try {
+      localStorage.setItem(RATING_KEY, JSON.stringify({ value, ts: Date.now() }));
+    } catch (e) {
+      // localStorage unavailable (private browsing, etc.) — rating still displays for this visit
+    }
+  }
+
+  if (starButtons.length) {
+    let currentRating = loadRating();
+    paintStars(currentRating);
+    setRatingFeedback(currentRating);
+
+    starButtons.forEach((btn) => {
+      const v = Number(btn.dataset.value);
+      btn.addEventListener("mouseenter", () => paintStars(v));
+      btn.addEventListener("mouseleave", () => paintStars(currentRating));
+      btn.addEventListener("focus", () => paintStars(v));
+      btn.addEventListener("blur", () => paintStars(currentRating));
+      btn.addEventListener("click", () => {
+        currentRating = v;
+        paintStars(v);
+        setRatingFeedback(v);
+        saveRating(v);
+      });
+    });
+  }
 })();

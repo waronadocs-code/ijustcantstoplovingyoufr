@@ -666,6 +666,64 @@ button, a { font: inherit; }
   display: block;
 }
 
+/* ---------- rating widget ---------- */
+
+.rating-section {
+  position: relative;
+  z-index: 1;
+  background: #17110b;
+  padding: 90px 24px 0;
+  text-align: center;
+}
+
+.rating-section h2 {
+  margin: 14px 0 6px;
+  color: var(--beige);
+  font-family: "Playfair Display", serif;
+  font-size: 2.6rem;
+  font-weight: 600;
+}
+
+.rating-intro {
+  margin: 0 0 28px;
+  color: rgba(247, 239, 225, 0.65);
+  font-size: 1rem;
+}
+
+.star-rating {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.star-btn {
+  padding: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2.6rem;
+  line-height: 1;
+  color: rgba(247, 239, 225, 0.22);
+  transition: color 150ms ease, transform 150ms ease;
+}
+
+.star-btn:hover,
+.star-btn:focus-visible {
+  transform: translateY(-2px);
+  color: var(--gold-soft);
+}
+
+.star-btn.is-filled { color: var(--gold); }
+
+.star-btn:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 3px; }
+
+.rating-feedback {
+  min-height: 1.4em;
+  margin: 18px 0 0;
+  color: var(--gold-soft);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
 /* ---------- book section (below the fold) ---------- */
 
 .book-section {
