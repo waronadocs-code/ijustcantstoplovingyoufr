@@ -1,342 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>A Very Important Question 💍</title>
-<style>
-  /* ============================================
-     EDIT YOUR NAMES + MESSAGE IN THE <script> TAG
-     AT THE BOTTOM OF THIS FILE (CONFIG section)
-     ============================================ */
-
-  :root{
-    --berry:#B8175C;        /* deep raspberry */
-    --candy:#FF4F8B;        /* candy pink */
-    --peach:#FFB86B;        /* warm peach */
-    --cream:#FFF4E9;        /* soft cream */
-    --ink:#3A1229;          /* plum ink */
-    --mint:#7BE0C3;         /* confetti mint */
-  }
-
-  *{margin:0;padding:0;box-sizing:border-box}
-
-  html,body{height:100%;overflow:hidden}
-
-  body{
-    font-family:'Baloo 2','Comic Sans MS',system-ui,sans-serif;
-    background:linear-gradient(160deg,#FF87AE 0%,#FF4F8B 45%,#B8175C 100%);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--cream);
-    position:relative;
-  }
-
-  /* floating hearts backdrop */
-  .heart-float{
-    position:absolute;bottom:-8vh;
-    font-size:22px;opacity:.5;
-    animation:rise linear infinite;
-    pointer-events:none;
-    user-select:none;
-  }
-  @keyframes rise{
-    from{transform:translateY(0) rotate(0deg)}
-    to{transform:translateY(-115vh) rotate(340deg)}
-  }
-  @media (prefers-reduced-motion: reduce){
-    .heart-float{animation:none;display:none}
-  }
-
-  .card{
-    text-align:center;
-    padding:2rem;
-    max-width:640px;
-    width:92%;
-    position:relative;
-    z-index:2;
-  }
-
-  .eyebrow{
-    display:inline-block;
-    background:rgba(255,244,233,.18);
-    border:2px dashed rgba(255,244,233,.55);
-    border-radius:999px;
-    padding:.35rem 1.1rem;
-    font-size:.95rem;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    margin-bottom:1.2rem;
-  }
-
-  h1{
-    font-size:clamp(2rem,6vw,3.6rem);
-    line-height:1.12;
-    text-shadow:0 4px 0 rgba(58,18,41,.25);
-    margin-bottom:.6rem;
-  }
-  h1 .name{color:var(--peach)}
-
-  .sub{
-    font-size:clamp(1rem,2.6vw,1.25rem);
-    opacity:.92;
-    margin-bottom:2.4rem;
-  }
-
-  .ring{
-    font-size:clamp(3.2rem,9vw,5rem);
-    display:inline-block;
-    animation:wobble 2.6s ease-in-out infinite;
-    margin-bottom:1rem;
-  }
-  @keyframes wobble{
-    0%,100%{transform:rotate(-8deg) translateY(0)}
-    50%{transform:rotate(8deg) translateY(-8px)}
-  }
-  @media (prefers-reduced-motion: reduce){ .ring{animation:none} }
-
-  .buttons{
-    display:flex;
-    gap:1.2rem;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    min-height:120px;
-  }
-
-  button{
-    font-family:inherit;
-    font-weight:700;
-    border:none;
-    border-radius:999px;
-    cursor:pointer;
-    transition:transform .12s ease, box-shadow .12s ease;
-  }
-  button:focus-visible{outline:4px solid var(--mint);outline-offset:3px}
-
-  #yesBtn{
-    background:var(--cream);
-    color:var(--berry);
-    font-size:1.4rem;
-    padding:1rem 2.6rem;
-    box-shadow:0 6px 0 rgba(58,18,41,.3);
-  }
-  #yesBtn:hover{transform:translateY(-3px) scale(1.04)}
-  #yesBtn:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(58,18,41,.3)}
-
-  #noBtn{
-    background:rgba(58,18,41,.35);
-    color:var(--cream);
-    font-size:1.05rem;
-    padding:.8rem 1.8rem;
-    box-shadow:0 4px 0 rgba(58,18,41,.35);
-  }
-  #noBtn.fleeing{
-    position:fixed;
-    z-index:5;
-    transition:left .18s ease, top .18s ease;
-  }
-
-  .taunt{
-    margin-top:1.4rem;
-    min-height:1.6em;
-    font-size:1.05rem;
-    color:var(--peach);
-    font-weight:700;
-  }
-
-  /* success screen */
-  #success{
-    display:none;
-    text-align:center;
-    padding:2rem;
-    z-index:2;
-  }
-  #success h2{
-    font-size:clamp(2.4rem,7vw,4.2rem);
-    text-shadow:0 4px 0 rgba(58,18,41,.25);
-    margin-bottom:.8rem;
-  }
-  #success p{
-    font-size:clamp(1.05rem,2.6vw,1.3rem);
-    line-height:1.55;
-    opacity:.97;
-    max-width:52ch;
-    margin:0 auto;
-  }
-  .pop{animation:pop .5s cubic-bezier(.2,1.6,.4,1) both}
-  @keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
-
-  canvas#confetti{
-    position:fixed;inset:0;
-    pointer-events:none;
-    z-index:10;
-  }
-
-  /* Apple-style emoji images */
-  .apple-emoji{
-    display:inline-block;
-    vertical-align:-0.15em;
-    width:1em;height:1em;
-    object-fit:contain;
-  }
-  .ring-img{width:clamp(3.2rem,9vw,5rem);height:auto}
-  .btn-emoji{width:1.2em;height:1.2em;vertical-align:-0.25em}
-  .h2-emoji{width:1em;height:1em;vertical-align:-0.12em}
-  .success-emojis{margin-top:1.4rem;display:flex;gap:1rem;justify-content:center}
-  .big-emoji{width:3rem;height:3rem}
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>377 Jack Hindon Street — Book Direct on Booking.com</title>
+<meta name="description" content="A gold-lit studio wrapped in exposed brick and tailored comfort. Check availability and book 377 Jack Hindon Street on Booking.com." />
+<link rel="icon" href="data:," />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="script.js" defer></script>
 </head>
 <body>
+<main class="site-shell">
+  <section class="cinema-scroll" id="cinema" aria-label="377 Jack Hindon Street cinematic overview">
+    <div class="stage">
+      <div class="world">
 
-<canvas id="confetti"></canvas>
+        <img class="scene-img scene-bg" alt="" src="assets/photos/studio-overview.jpg" />
+        <img class="scene-img scene-glow" alt="" src="assets/photos/studio-overview.jpg" />
 
-<div class="card" id="question">
-  <span class="ring" aria-hidden="true"><img class="apple-emoji ring-img" src="https://emojicdn.elk.sh/💍?style=apple" alt="💍"></span><br>
-  <span class="eyebrow">A very important question</span>
-  <h1>Hi <span class="name" id="herName"></span>, will you be my life partner?</h1>
-  <p class="sub" id="subLine"></p>
-  <div class="buttons">
-    <button id="yesBtn">YES! <img class="apple-emoji btn-emoji" src="https://emojicdn.elk.sh/❤️?style=apple" alt="❤️"></button>
-    <button id="noBtn">No</button>
-  </div>
-  <div class="taunt" id="taunt" aria-live="polite"></div>
-</div>
+        <header class="site-header" aria-label="Primary navigation">
+          <a class="site-logo" href="#cinema">377 Jack Hindon</a>
+          <nav class="site-nav" aria-label="Main menu">
+            <a href="#cinema">Stay</a>
+            <a href="#story-space">The Space</a>
+            <a href="#story-amenities">Amenities</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#location">Location</a>
+          </nav>
+          <a class="btn-gold btn-small book-cta" href="#" target="_blank" rel="noopener" aria-label="Book 377 Jack Hindon Street on Booking.com">
+            <span>Book Now</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </header>
 
-<div class="card" id="success">
-  <h2 class="pop">SHE SAID YES!!! <img class="apple-emoji h2-emoji" src="https://emojicdn.elk.sh/🎉?style=apple" alt="🎉"></h2>
-  <p class="pop" id="successLine"></p>
-  <div class="pop success-emojis">
-    <img class="apple-emoji big-emoji" src="https://emojicdn.elk.sh/💍?style=apple" alt="💍">
-    <img class="apple-emoji big-emoji" src="https://emojicdn.elk.sh/❤️?style=apple" alt="❤️">
-    <img class="apple-emoji big-emoji" src="https://emojicdn.elk.sh/🥂?style=apple" alt="🥂">
-  </div>
-</div>
+        <div class="back-stack">
+          <img class="scene-img back-img detail-img" alt="" src="assets/photos/bedroom-detail.jpg" />
 
-<script>
-/* ================= CONFIG — edit these! ================= */
-const CONFIG = {
-  herName: "Khusela",
-  subLine: "Before you answer, know this: you make every ordinary day feel like the best one yet.",
-  successLine: "Since the day we met, my life has completely changed for the better. I’m tired of leaving ‘what ifs’ on the table. I want all of you — your bad days, your dreams, and your quirks. I am choosing you today, tomorrow, and every day after that, and I’m fully committed to building a beautiful future together.",
-  taunts: [
-    "Nice try 😏",
-    "That button is broken, promise.",
-    "Are you SURE about that?",
-    "The universe says no to your no.",
-    "You can't catch me! 😝",
-    "The Yes button is getting lonely...",
-    "Okay now you're just playing hard to get.",
-    "Even the button knows the answer is yes. 💘"
-  ]
-};
-/* ========================================================= */
+          <section class="sights-slider" aria-label="Room highlights slider">
+            <div class="sights-track">
+              <!-- cards injected in duplicate by script.js for infinite loop -->
+              <article class="sight-card" tabindex="0" role="button" aria-label="Open Bedroom Retreat card">
+                <span class="sight-kicker">Sleep</span>
+                <span class="sight-pin" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 30V14a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v6" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 20h8a2 2 0 0 1 2 2v8" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 36V26a4 4 0 0 1 4-4h32a4 4 0 0 1 4 4v10" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 36v4M44 36v4" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round"/></svg>
+                </span>
+                <h3>Bedroom Retreat</h3>
+                <p>A channel-tufted charcoal headboard and crisp linen set against a reclaimed brick wall.</p>
+              </article>
+              <article class="sight-card" tabindex="0" role="button" aria-label="Open Exposed Brick Lounge card">
+                <span class="sight-kicker">Unwind</span>
+                <span class="sight-pin" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 26v-6a4 4 0 0 1 4-4h24a4 4 0 0 1 4 4v6" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="6" y="26" width="36" height="10" rx="2.5" stroke="#8a6a1f" stroke-width="2.4"/><path d="M8 36v4M40 36v4" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round"/></svg>
+                </span>
+                <h3>Exposed Brick Lounge</h3>
+                <p>Bouclé armchairs and a cowhide rug make a warm corner for coffee or a slow evening.</p>
+              </article>
+              <article class="sight-card" tabindex="0" role="button" aria-label="Open Entertainment Corner card">
+                <span class="sight-kicker">Relax</span>
+                <span class="sight-pin" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="22" rx="2.5" stroke="#8a6a1f" stroke-width="2.4"/><path d="M18 38h12M24 32v6" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round"/></svg>
+                </span>
+                <h3>Entertainment Corner</h3>
+                <p>A wall-mounted flatscreen and tripod floor lamp set against the brick feature wall.</p>
+              </article>
+              <article class="sight-card" tabindex="0" role="button" aria-label="Open Self-Catering Kitchenette card">
+                <span class="sight-kicker">Prepare</span>
+                <span class="sight-pin" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 20h20v12a6 6 0 0 1-6 6h-8a6 6 0 0 1-6-6V20Z" stroke="#8a6a1f" stroke-width="2.4" stroke-linejoin="round"/><path d="M32 24h3a4 4 0 0 1 0 8h-3" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 20v-4M27 20v-4" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round"/></svg>
+                </span>
+                <h3>Self-Catering Kitchenette</h3>
+                <p>Kettle, toaster, and crockery on floating oak shelves above a full stainless sink.</p>
+              </article>
+              <article class="sight-card" tabindex="0" role="button" aria-label="Open Climate Control card">
+                <span class="sight-kicker">Comfort</span>
+                <span class="sight-pin" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 6v36M8 15l32 18M40 15 8 33" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round"/></svg>
+                </span>
+                <h3>Climate Control</h3>
+                <p>A quiet wall-mounted inverter unit keeps the studio comfortable in any season.</p>
+              </article>
+            </div>
+          </section>
 
-/* Convert any emoji in a string to Apple-style emoji images */
-const EMOJI_RE = /(\p{Extended_Pictographic}(?:\uFE0F|\u200D\p{Extended_Pictographic})*)/gu;
-function appleize(str){
-  return str.replace(EMOJI_RE, m =>
-    `<img class="apple-emoji" src="https://emojicdn.elk.sh/${encodeURIComponent(m)}?style=apple" alt="${m}">`);
-}
+          <img class="scene-img back-img split-left" alt="" src="assets/photos/kitchenette.jpg" />
+          <img class="scene-img back-img split-right" alt="" src="assets/photos/lounge-tv.jpg" />
+        </div>
 
-document.getElementById('herName').textContent = CONFIG.herName;
-document.getElementById('subLine').textContent = CONFIG.subLine;
-document.getElementById('successLine').textContent = CONFIG.successLine;
+        <div class="sights-controls" aria-label="Slider controls">
+          <button class="sight-nav sight-prev" aria-label="Previous highlight">←</button>
+          <button class="sight-nav sight-next" aria-label="Next highlight">→</button>
+        </div>
 
-const noBtn = document.getElementById('noBtn');
-const yesBtn = document.getElementById('yesBtn');
-const taunt = document.getElementById('taunt');
-let dodges = 0;
+        <h1 class="hero-title">377<br />JACK HINDON</h1>
 
-function flee(){
-  dodges++;
-  noBtn.classList.add('fleeing');
-  const pad = 20;
-  const bw = noBtn.offsetWidth, bh = noBtn.offsetHeight;
-  const x = pad + Math.random() * (window.innerWidth - bw - pad*2);
-  const y = pad + Math.random() * (window.innerHeight - bh - pad*2);
-  noBtn.style.left = x + 'px';
-  noBtn.style.top = y + 'px';
+        <div class="shade"></div>
+      </div>
 
-  taunt.innerHTML = appleize(CONFIG.taunts[Math.min(dodges-1, CONFIG.taunts.length-1)]);
+      <section class="intro-copy" aria-label="Studio overview">
+        <p>A gold-lit studio wrapped in exposed brick, tailored velvet, and quiet comfort — steps from everything, styled for staying in.</p>
+        <div class="hero-tags" aria-label="Studio highlights">
+          <span>Self-Catering Studio</span>
+          <span>Exposed Brick Interior</span>
+          <span>Air-Conditioned</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn-gold book-cta" href="#" target="_blank" rel="noopener">
+            <span>Book on Booking.com</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a class="btn-ghost" href="#story-space">
+            <span>See the Space</span>
+            <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </section>
 
-  // Yes grows, No shrinks — resistance is futile
-  const grow = Math.min(1 + dodges * 0.12, 2.1);
-  yesBtn.style.transform = `scale(${grow})`;
-  const shrink = Math.max(1 - dodges * 0.07, 0.55);
-  noBtn.style.scale = shrink;
-  if (dodges >= 10) { noBtn.innerHTML = appleize("fine, YES 💗"); noBtn.onclick = celebrate; }
-}
+      <section class="story-panel story-panel-space" id="story-space" aria-label="About the space">
+        <h2>Built around comfort.</h2>
+        <p>Every corner is dressed with intention — a tufted headboard, bouclé seating, and a reclaimed brick wall that carries light beautifully from morning to night.</p>
+        <dl class="facts">
+          <div>
+            <dt>A/C</dt>
+            <dd>Inverter climate control</dd>
+          </div>
+          <div>
+            <dt>Smart TV</dt>
+            <dd>Wall-mounted entertainment</dd>
+          </div>
+        </dl>
+      </section>
 
-noBtn.addEventListener('mouseenter', flee);
-noBtn.addEventListener('touchstart', (e)=>{ e.preventDefault(); flee(); }, {passive:false});
-noBtn.addEventListener('click', (e)=>{ if(dodges < 10){ e.preventDefault(); flee(); } });
+      <section class="story-panel story-panel-amenities" id="story-amenities" aria-label="Amenities details">
+        <h2>Everything you need, styled well.</h2>
+        <p>A full self-catering kitchenette, hotel-grade linen, and polished concrete floors keep the studio effortless to live in for a night or a month.</p>
+        <button class="note-button" type="button">
+          <span aria-hidden="true">↗</span>
+          <span>See amenities on Booking.com</span>
+        </button>
+      </section>
 
-/* ---------- confetti ---------- */
-const canvas = document.getElementById('confetti');
-const ctx = canvas.getContext('2d');
-let pieces = [], raf;
-function resize(){ canvas.width = innerWidth; canvas.height = innerHeight; }
-addEventListener('resize', resize); resize();
+    </div>
+  </section>
 
-const COLORS = ['#FFF4E9','#FFB86B','#7BE0C3','#FF4F8B','#FFD166','#B8175C'];
-function spawnConfetti(n){
-  for(let i=0;i<n;i++){
-    pieces.push({
-      x: Math.random()*canvas.width,
-      y: -20 - Math.random()*canvas.height*0.5,
-      w: 6+Math.random()*8, h: 8+Math.random()*10,
-      vy: 2+Math.random()*3.5, vx: -1.5+Math.random()*3,
-      rot: Math.random()*Math.PI, vr: -0.1+Math.random()*0.2,
-      color: COLORS[Math.floor(Math.random()*COLORS.length)],
-      heart: Math.random() < 0.18
-    });
-  }
-}
-function draw(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  pieces.forEach(p=>{
-    p.x+=p.vx; p.y+=p.vy; p.rot+=p.vr;
-    ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot);
-    if(p.heart && appleHeart.complete && appleHeart.naturalWidth){
-      ctx.drawImage(appleHeart, -9, -9, 18, 18);
-    } else {
-      ctx.fillStyle=p.color; ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
-    }
-    ctx.restore();
-  });
-  pieces = pieces.filter(p=>p.y < canvas.height+30);
-  raf = pieces.length ? requestAnimationFrame(draw) : null;
-}
+  <section class="gallery-section" id="gallery" aria-label="Photo gallery">
+    <span class="book-kicker">Around the Studio</span>
+    <h2>A closer look.</h2>
+    <div class="gallery-grid">
+      <figure><img src="assets/photos/bedroom-wide.jpg" alt="Queen bed with charcoal headboard against exposed brick" loading="lazy" /><figcaption>Bedroom</figcaption></figure>
+      <figure><img src="assets/photos/lounge-table.jpg" alt="Lounge chairs, round table, and TV on the brick feature wall" loading="lazy" /><figcaption>Lounge Corner</figcaption></figure>
+      <figure><img src="assets/photos/kitchenette.jpg" alt="Fridge, microwave, and gas hob in the kitchenette" loading="lazy" /><figcaption>Kitchenette</figcaption></figure>
+      <figure><img src="assets/photos/bathroom.jpg" alt="Tiled shower with rain showerhead" loading="lazy" /><figcaption>Bathroom</figcaption></figure>
+      <figure><img src="assets/photos/bedroom-alt.jpg" alt="Bed dressed with rolled towels and folded blanket" loading="lazy" /><figcaption>Fresh Linen</figcaption></figure>
+      <figure><img src="assets/photos/studio-overview.jpg" alt="Wide view of the studio from the entrance" loading="lazy" /><figcaption>Studio Overview</figcaption></figure>
+    </div>
+  </section>
 
-function celebrate(){
-  document.getElementById('question').style.display='none';
-  noBtn.style.display='none';
-  document.getElementById('success').style.display='block';
-  spawnConfetti(260);
-  if(!raf) draw();
-  setTimeout(()=>{ spawnConfetti(160); if(!raf) draw(); }, 900);
-  setTimeout(()=>{ spawnConfetti(160); if(!raf) draw(); }, 1900);
-}
-yesBtn.addEventListener('click', celebrate);
+  <section class="location-section" id="location" aria-label="Location">
+    <span class="book-kicker">Find Us</span>
+    <h2>377 Jack Hindon Street</h2>
+    <p class="location-address">Pretoria North, Pretoria, 0116</p>
+    <div class="map-frame">
+      <iframe
+        src="https://www.google.com/maps?q=377+Jack+Hindon+St,+Pretoria+North,+Pretoria,+0116&output=embed"
+        title="Map showing 377 Jack Hindon Street, Pretoria North"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+    </div>
+    <a class="btn-ghost" href="https://www.google.com/maps/place/377+Jack+Hindon+St,+Pretoria+North,+Pretoria,+0116/data=!4m2!3m1!1s0x1ebfd971a13aedbd:0x83f9e724914a2d0d" target="_blank" rel="noopener">
+      <span>Open in Google Maps</span>
+      <span aria-hidden="true">↗</span>
+    </a>
+  </section>
 
-/* preloaded Apple heart for canvas confetti */
-const appleHeart = new Image();
-appleHeart.crossOrigin = 'anonymous';
-appleHeart.src = 'https://emojicdn.elk.sh/%E2%9D%A4%EF%B8%8F?style=apple';
+  <section class="rating-section" id="rate-stay" aria-label="Rate your stay">
+    <span class="book-kicker">Your Feedback</span>
+    <h2>Rate Your Stay</h2>
+    <p class="rating-intro">Already stayed with us? Let us know how it went.</p>
+    <form class="rating-form" id="rating-form">
+      <div class="star-rating" role="radiogroup" aria-label="Star rating out of 5">
+        <button type="button" class="star-btn" data-value="1" role="radio" aria-checked="false" aria-label="1 star">★</button>
+        <button type="button" class="star-btn" data-value="2" role="radio" aria-checked="false" aria-label="2 stars">★</button>
+        <button type="button" class="star-btn" data-value="3" role="radio" aria-checked="false" aria-label="3 stars">★</button>
+        <button type="button" class="star-btn" data-value="4" role="radio" aria-checked="false" aria-label="4 stars">★</button>
+        <button type="button" class="star-btn" data-value="5" role="radio" aria-checked="false" aria-label="5 stars">★</button>
+      </div>
+      <input type="hidden" name="rating" id="rating-value" />
+      <div class="form-row">
+        <input type="text" name="name" class="form-input" placeholder="Your name (optional)" autocomplete="name" />
+      </div>
+      <div class="form-row">
+        <textarea name="message" class="form-textarea" rows="3" placeholder="Tell us about your stay (optional)"></textarea>
+      </div>
+      <button type="submit" class="btn-gold form-submit">
+        <span>Submit Rating</span>
+        <span aria-hidden="true">→</span>
+      </button>
+      <p class="rating-feedback" aria-live="polite"></p>
+    </form>
+  </section>
 
-/* ---------- floating hearts backdrop (Apple-style images) ---------- */
-const HEARTS = ['💗','💖','💕','🩷','❤️'];
-for(let i=0;i<16;i++){
-  const s = document.createElement('span');
-  s.className='heart-float';
-  const size = 14 + Math.random()*26;
-  s.innerHTML = `<img class="apple-emoji" style="width:${size}px;height:${size}px" src="https://emojicdn.elk.sh/${encodeURIComponent(HEARTS[i % HEARTS.length])}?style=apple" alt="">`;
-  s.style.left = Math.random()*100 + 'vw';
-  s.style.animationDuration = (9 + Math.random()*12) + 's';
-  s.style.animationDelay = (-Math.random()*12) + 's';
-  document.body.appendChild(s);
-}
-</script>
+  <section class="book-section" id="book" aria-label="Book this stay">
+    <div class="book-inner">
+      <span class="book-kicker">377 Jack Hindon Street</span>
+      <h2>Ready to stay?</h2>
+      <p>Check live availability and pricing, then book securely straight through Booking.com.</p>
+      <a class="btn-gold btn-large book-cta" href="#" target="_blank" rel="noopener">
+        <span>Book on Booking.com</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+      <p class="book-note">You'll be redirected to Booking.com to complete your reservation.</p>
+    </div>
+    <footer class="site-footer">
+      <span>377 Jack Hindon Street</span>
+      <span class="footer-dot" aria-hidden="true">•</span>
+      <span>Self-catering studio</span>
+    </footer>
+  </section>
+</main>
 </body>
 </html>
