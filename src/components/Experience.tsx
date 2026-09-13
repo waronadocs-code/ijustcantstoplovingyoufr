@@ -17,7 +17,7 @@ const MOMENTS = [
   {
     id: "rest",
     label: "Rest",
-    copy: "A room made for staying a little longer.",
+    copy: "A bed made for staying a little longer.",
     image: experienceImages.rest,
   },
   {
