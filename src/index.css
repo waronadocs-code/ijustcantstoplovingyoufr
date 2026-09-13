@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #f4f1ea;
+  --color-ivory-dim: #eae5da;
+  --color-ink: #111111;
+  --color-stone: #77736c;
+  --color-stone-light: #a49e93;
+  --color-accent: #c9bfa9;
+  --color-accent-dark: #ab9d7d;
+
+  --font-serif: "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --breakpoint-xs: 22.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-ivory);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* thin, editorial scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-stone-light);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.container-edit {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 5rem);
+}
+
+/* utility: hide scrollbar for horizontal swipe rows */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
