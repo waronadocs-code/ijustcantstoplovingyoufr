@@ -3,166 +3,200 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>377 Jack Hindon Street — Book Direct on Booking.com</title>
-<meta name="description" content="A gold-lit studio wrapped in exposed brick and tailored comfort. Check availability and book 377 Jack Hindon Street on Booking.com." />
+<title>377 Jack Hindon Street — Self-Catering Studio in Pretoria North</title>
+<meta name="description" content="A gold-lit self-catering studio wrapped in exposed brick and quiet comfort at 377 Jack Hindon Street, Pretoria North. Check availability and book direct on Booking.com." />
 <link rel="icon" href="data:," />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 <script src="script.js" defer></script>
 </head>
 <body>
-<main class="site-shell">
-  <section class="cinema-scroll" id="cinema" aria-label="377 Jack Hindon Street cinematic overview">
-    <div class="stage">
-      <div class="world">
 
-        <img class="scene-img scene-bg" alt="" src="assets/photos/studio-overview.jpg" />
-        <img class="scene-img scene-glow" alt="" src="assets/photos/studio-overview.jpg" />
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <div class="header-side header-side-left" aria-hidden="true"></div>
+    <a class="site-logo" href="#top" aria-label="377 Jack Hindon Street — home">
+      <span class="logo-line">JACK</span>
+      <span class="logo-line">HINDON</span>
+      <span class="logo-sub">377 · PRETORIA NORTH</span>
+    </a>
+    <div class="header-side header-side-right">
+      <a class="header-book-link book-cta" href="#" target="_blank" rel="noopener">Book Now</a>
+      <button class="menu-toggle" id="menu-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+        <span class="menu-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+</header>
 
-        <header class="site-header" aria-label="Primary navigation">
-          <a class="site-logo" href="#cinema">377 Jack Hindon</a>
-          <nav class="site-nav" aria-label="Main menu">
-            <a href="#cinema">Stay</a>
-            <a href="#story-space">The Space</a>
-            <a href="#story-amenities">Amenities</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#location">Location</a>
-          </nav>
-          <a class="btn-gold btn-small book-cta" href="#" target="_blank" rel="noopener" aria-label="Book 377 Jack Hindon Street on Booking.com">
-            <span>Book Now</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-        </header>
+<nav class="site-menu" id="site-menu" aria-label="Main menu" aria-hidden="true">
+  <button class="menu-close" id="menu-close" aria-label="Close menu">✕</button>
+  <ul>
+    <li><a href="#hero" data-menu-link>Stay</a></li>
+    <li><a href="#intro" data-menu-link>About</a></li>
+    <li><a href="#studio-grid" data-menu-link>The Space</a></li>
+    <li><a href="#amenities" data-menu-link>Amenities</a></li>
+    <li><a href="#gallery" data-menu-link>Gallery</a></li>
+    <li><a href="#location" data-menu-link>Location</a></li>
+    <li><a href="#faq" data-menu-link>FAQ</a></li>
+    <li><a href="#rate-stay" data-menu-link>Rate Your Stay</a></li>
+  </ul>
+  <a class="btn-lime menu-book book-cta" href="#" target="_blank" rel="noopener">Book Now</a>
+</nav>
 
-        <div class="back-stack">
-          <img class="scene-img back-img detail-img" alt="" src="assets/photos/bedroom-detail.jpg" />
+<main id="top">
 
-          <section class="sights-slider" aria-label="Room highlights slider">
-            <div class="sights-track">
-              <!-- cards injected in duplicate by script.js for infinite loop -->
-              <article class="sight-card" tabindex="0" role="button" aria-label="Open Bedroom Retreat card">
-                <span class="sight-kicker">Sleep</span>
-                <span class="sight-pin" aria-hidden="true">
-                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 30V14a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v6" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 20h8a2 2 0 0 1 2 2v8" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 36V26a4 4 0 0 1 4-4h32a4 4 0 0 1 4 4v10" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 36v4M44 36v4" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round"/></svg>
-                </span>
-                <h3>Bedroom Retreat</h3>
-                <p>A channel-tufted charcoal headboard and crisp linen set against a reclaimed brick wall.</p>
-              </article>
-              <article class="sight-card" tabindex="0" role="button" aria-label="Open Exposed Brick Lounge card">
-                <span class="sight-kicker">Unwind</span>
-                <span class="sight-pin" aria-hidden="true">
-                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 26v-6a4 4 0 0 1 4-4h24a4 4 0 0 1 4 4v6" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="6" y="26" width="36" height="10" rx="2.5" stroke="#8a6a1f" stroke-width="2.4"/><path d="M8 36v4M40 36v4" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round"/></svg>
-                </span>
-                <h3>Exposed Brick Lounge</h3>
-                <p>Bouclé armchairs and a cowhide rug make a warm corner for coffee or a slow evening.</p>
-              </article>
-              <article class="sight-card" tabindex="0" role="button" aria-label="Open Entertainment Corner card">
-                <span class="sight-kicker">Relax</span>
-                <span class="sight-pin" aria-hidden="true">
-                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="22" rx="2.5" stroke="#8a6a1f" stroke-width="2.4"/><path d="M18 38h12M24 32v6" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round"/></svg>
-                </span>
-                <h3>Entertainment Corner</h3>
-                <p>A wall-mounted flatscreen and tripod floor lamp set against the brick feature wall.</p>
-              </article>
-              <article class="sight-card" tabindex="0" role="button" aria-label="Open Self-Catering Kitchenette card">
-                <span class="sight-kicker">Prepare</span>
-                <span class="sight-pin" aria-hidden="true">
-                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 20h20v12a6 6 0 0 1-6 6h-8a6 6 0 0 1-6-6V20Z" stroke="#8a6a1f" stroke-width="2.4" stroke-linejoin="round"/><path d="M32 24h3a4 4 0 0 1 0 8h-3" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 20v-4M27 20v-4" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round"/></svg>
-                </span>
-                <h3>Self-Catering Kitchenette</h3>
-                <p>Kettle, toaster, and crockery on floating oak shelves above a full stainless sink.</p>
-              </article>
-              <article class="sight-card" tabindex="0" role="button" aria-label="Open Climate Control card">
-                <span class="sight-kicker">Comfort</span>
-                <span class="sight-pin" aria-hidden="true">
-                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 6v36M8 15l32 18M40 15 8 33" stroke="#8a6a1f" stroke-width="2.4" stroke-linecap="round"/></svg>
-                </span>
-                <h3>Climate Control</h3>
-                <p>A quiet wall-mounted inverter unit keeps the studio comfortable in any season.</p>
-              </article>
-            </div>
-          </section>
+  <section class="hero" id="hero" aria-label="377 Jack Hindon Street">
+    <img class="hero-img" src="assets/photos/studio-overview.jpg" alt="" />
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="hero-content reveal">
+      <span class="eyebrow eyebrow-light">Self-Catering · Pretoria North · Air-Conditioned</span>
+      <h1>Gold light,<br />exposed brick,<br />quiet comfort.</h1>
+      <a class="btn-lime book-cta" href="#" target="_blank" rel="noopener">Book Now</a>
+    </div>
+  </section>
 
-          <img class="scene-img back-img split-left" alt="" src="assets/photos/kitchenette.jpg" />
-          <img class="scene-img back-img split-right" alt="" src="assets/photos/lounge-tv.jpg" />
-        </div>
+  <section class="intro" id="intro" aria-label="About the studio">
+    <div class="intro-inner reveal">
+      <span class="rule-mark" aria-hidden="true"></span>
+      <span class="eyebrow">Self-Catering Studio in Pretoria North</span>
+      <h2>Built around comfort.</h2>
+      <p>A gold-lit studio wrapped in exposed brick, tailored velvet, and quiet comfort — steps from everything, styled for staying in.</p>
+      <p>Every corner is dressed with intention: a tufted headboard, bouclé seating, and a reclaimed brick wall that carries light beautifully from morning to night.</p>
+      <a class="text-link" href="#studio-grid">About the Space</a>
+    </div>
+  </section>
 
-        <div class="sights-controls" aria-label="Slider controls">
-          <button class="sight-nav sight-prev" aria-label="Previous highlight">←</button>
-          <button class="sight-nav sight-next" aria-label="Next highlight">→</button>
-        </div>
+  <figure class="full-photo reveal">
+    <img src="assets/photos/bedroom-wide.jpg" alt="Queen bed with charcoal headboard against exposed brick" loading="lazy" />
+  </figure>
 
-        <h1 class="hero-title">377<br />JACK HINDON</h1>
+  <section class="studio-grid-section" id="studio-grid" aria-label="The studio">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Studio</span>
+      <h2>Every corner, styled well.</h2>
+    </div>
 
-        <div class="shade"></div>
-      </div>
+    <div class="edge-grid edge-grid-2">
+      <a class="edge-tile reveal" href="#gallery">
+        <img src="assets/photos/bedroom-detail.jpg" alt="" loading="lazy" />
+        <span class="edge-tile-shade" aria-hidden="true"></span>
+        <span class="edge-tile-copy">
+          <strong>Bedroom Retreat</strong>
+          <span class="text-link text-link-light">Discover</span>
+        </span>
+      </a>
+      <a class="edge-tile reveal" href="#gallery">
+        <img src="assets/photos/lounge-table.jpg" alt="" loading="lazy" />
+        <span class="edge-tile-shade" aria-hidden="true"></span>
+        <span class="edge-tile-copy">
+          <strong>Exposed Brick Lounge</strong>
+          <span class="text-link text-link-light">Discover</span>
+        </span>
+      </a>
+    </div>
 
-      <section class="intro-copy" aria-label="Studio overview">
-        <p>A gold-lit studio wrapped in exposed brick, tailored velvet, and quiet comfort — steps from everything, styled for staying in.</p>
-        <div class="hero-tags" aria-label="Studio highlights">
-          <span>Self-Catering Studio</span>
-          <span>Exposed Brick Interior</span>
-          <span>Air-Conditioned</span>
-        </div>
-        <div class="hero-actions">
-          <a class="btn-gold book-cta" href="#" target="_blank" rel="noopener">
-            <span>Book on Booking.com</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-          <a class="btn-ghost" href="#story-space">
-            <span>See the Space</span>
-            <span aria-hidden="true">↓</span>
-          </a>
-        </div>
-      </section>
+    <a class="edge-tile edge-tile-wide reveal" href="#gallery">
+      <img src="assets/photos/kitchenette.jpg" alt="" loading="lazy" />
+      <span class="edge-tile-shade" aria-hidden="true"></span>
+      <span class="edge-tile-copy">
+        <strong>Self-Catering Kitchenette</strong>
+        <span class="text-link text-link-light">Discover</span>
+      </span>
+    </a>
 
-      <section class="story-panel story-panel-space" id="story-space" aria-label="About the space">
-        <h2>Built around comfort.</h2>
-        <p>Every corner is dressed with intention — a tufted headboard, bouclé seating, and a reclaimed brick wall that carries light beautifully from morning to night.</p>
-        <dl class="facts">
-          <div>
-            <dt>A/C</dt>
-            <dd>Inverter climate control</dd>
-          </div>
-          <div>
-            <dt>Smart TV</dt>
-            <dd>Wall-mounted entertainment</dd>
-          </div>
-        </dl>
-      </section>
+    <div class="edge-grid edge-grid-2">
+      <a class="edge-tile reveal" href="#gallery">
+        <img src="assets/photos/lounge-tv.jpg" alt="" loading="lazy" />
+        <span class="edge-tile-shade" aria-hidden="true"></span>
+        <span class="edge-tile-copy">
+          <strong>Entertainment Corner</strong>
+          <span class="text-link text-link-light">Discover</span>
+        </span>
+      </a>
+      <a class="edge-tile reveal" href="#gallery">
+        <img src="assets/photos/studio-overview.jpg" alt="" loading="lazy" />
+        <span class="edge-tile-shade" aria-hidden="true"></span>
+        <span class="edge-tile-copy">
+          <strong>Climate Control</strong>
+          <span class="text-link text-link-light">Discover</span>
+        </span>
+      </a>
+    </div>
+  </section>
 
-      <section class="story-panel story-panel-amenities" id="story-amenities" aria-label="Amenities details">
-        <h2>Everything you need, styled well.</h2>
+  <section class="amenities-section" id="amenities" aria-label="Amenities">
+    <div class="amenities-strip">
+      <figure class="reveal">
+        <img src="assets/photos/lounge-tv.jpg" alt="" loading="lazy" />
+        <figcaption><strong>Smart TV</strong><span>Wall-Mounted</span></figcaption>
+      </figure>
+      <figure class="reveal">
+        <img src="assets/photos/kitchenette.jpg" alt="" loading="lazy" />
+        <figcaption><strong>Kitchenette</strong><span>Self-Catering</span></figcaption>
+      </figure>
+      <figure class="reveal">
+        <img src="assets/photos/bedroom-alt.jpg" alt="" loading="lazy" />
+        <figcaption><strong>Fresh Linen</strong><span>Hotel-Grade</span></figcaption>
+      </figure>
+      <figure class="reveal">
+        <img src="assets/photos/bathroom.jpg" alt="" loading="lazy" />
+        <figcaption><strong>Bathroom</strong><span>Rain Shower</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="amenities-split">
+      <div class="amenities-text reveal">
+        <span class="eyebrow">Amenities</span>
         <p>A full self-catering kitchenette, hotel-grade linen, and polished concrete floors keep the studio effortless to live in for a night or a month.</p>
-        <button class="note-button" type="button">
-          <span aria-hidden="true">↗</span>
-          <span>See amenities on Booking.com</span>
-        </button>
-      </section>
+        <a class="text-link book-cta" href="#" target="_blank" rel="noopener">See Amenities on Booking.com</a>
+      </div>
+      <dl class="amenities-list reveal">
+        <div>
+          <dt>A/C</dt>
+          <dd>Inverter climate control</dd>
+        </div>
+        <div>
+          <dt>Smart TV</dt>
+          <dd>Wall-mounted entertainment</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
 
+  <section class="cta-band" aria-label="Book your stay">
+    <img class="cta-band-img" src="assets/photos/lounge-table.jpg" alt="" />
+    <div class="cta-band-shade" aria-hidden="true"></div>
+    <div class="cta-band-content reveal">
+      <h2>Your stay starts here.</h2>
+      <a class="btn-lime book-cta" href="#" target="_blank" rel="noopener">Book Now</a>
     </div>
   </section>
 
   <section class="gallery-section" id="gallery" aria-label="Photo gallery">
-    <span class="book-kicker">Around the Studio</span>
-    <h2>A closer look.</h2>
+    <div class="section-head reveal">
+      <span class="eyebrow">Around the Studio</span>
+      <h2>A closer look.</h2>
+    </div>
     <div class="gallery-grid">
-      <figure><img src="assets/photos/bedroom-wide.jpg" alt="Queen bed with charcoal headboard against exposed brick" loading="lazy" /><figcaption>Bedroom</figcaption></figure>
-      <figure><img src="assets/photos/lounge-table.jpg" alt="Lounge chairs, round table, and TV on the brick feature wall" loading="lazy" /><figcaption>Lounge Corner</figcaption></figure>
-      <figure><img src="assets/photos/kitchenette.jpg" alt="Fridge, microwave, and gas hob in the kitchenette" loading="lazy" /><figcaption>Kitchenette</figcaption></figure>
-      <figure><img src="assets/photos/bathroom.jpg" alt="Tiled shower with rain showerhead" loading="lazy" /><figcaption>Bathroom</figcaption></figure>
-      <figure><img src="assets/photos/bedroom-alt.jpg" alt="Bed dressed with rolled towels and folded blanket" loading="lazy" /><figcaption>Fresh Linen</figcaption></figure>
-      <figure><img src="assets/photos/studio-overview.jpg" alt="Wide view of the studio from the entrance" loading="lazy" /><figcaption>Studio Overview</figcaption></figure>
+      <figure class="reveal"><img src="assets/photos/bedroom-wide.jpg" alt="Queen bed with charcoal headboard against exposed brick" loading="lazy" /><figcaption>Bedroom</figcaption></figure>
+      <figure class="reveal"><img src="assets/photos/lounge-table.jpg" alt="Lounge chairs, round table, and TV on the brick feature wall" loading="lazy" /><figcaption>Lounge Corner</figcaption></figure>
+      <figure class="reveal"><img src="assets/photos/kitchenette.jpg" alt="Fridge, microwave, and gas hob in the kitchenette" loading="lazy" /><figcaption>Kitchenette</figcaption></figure>
+      <figure class="reveal"><img src="assets/photos/bathroom.jpg" alt="Tiled shower with rain showerhead" loading="lazy" /><figcaption>Bathroom</figcaption></figure>
+      <figure class="reveal"><img src="assets/photos/bedroom-alt.jpg" alt="Bed dressed with rolled towels and folded blanket" loading="lazy" /><figcaption>Fresh Linen</figcaption></figure>
+      <figure class="reveal"><img src="assets/photos/studio-overview.jpg" alt="Wide view of the studio from the entrance" loading="lazy" /><figcaption>Studio Overview</figcaption></figure>
     </div>
   </section>
 
   <section class="location-section" id="location" aria-label="Location">
-    <span class="book-kicker">Find Us</span>
-    <h2>377 Jack Hindon Street</h2>
-    <p class="location-address">Pretoria North, Pretoria, 0116</p>
-    <div class="map-frame">
+    <div class="section-head reveal">
+      <span class="eyebrow">Find Us</span>
+      <h2>377 Jack Hindon Street</h2>
+      <p class="location-address">Pretoria North, Pretoria, 0116</p>
+    </div>
+    <div class="map-frame reveal">
       <iframe
         src="https://www.google.com/maps?q=377+Jack+Hindon+St,+Pretoria+North,+Pretoria,+0116&output=embed"
         title="Map showing 377 Jack Hindon Street, Pretoria North"
@@ -170,17 +204,53 @@
         referrerpolicy="no-referrer-when-downgrade"
         allowfullscreen></iframe>
     </div>
-    <a class="btn-ghost" href="https://www.google.com/maps/place/377+Jack+Hindon+St,+Pretoria+North,+Pretoria,+0116/data=!4m2!3m1!1s0x1ebfd971a13aedbd:0x83f9e724914a2d0d" target="_blank" rel="noopener">
-      <span>Open in Google Maps</span>
-      <span aria-hidden="true">↗</span>
-    </a>
+    <a class="text-link" href="https://www.google.com/maps/place/377+Jack+Hindon+St,+Pretoria+North,+Pretoria,+0116/data=!4m2!3m1!1s0x1ebfd971a13aedbd:0x83f9e724914a2d0d" target="_blank" rel="noopener">Google Maps</a>
+  </section>
+
+  <section class="faq-section" id="faq" aria-label="Frequently asked questions">
+    <div class="section-head reveal">
+      <span class="eyebrow">Good to Know</span>
+      <h2>Frequently asked questions.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>What's included in the studio?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner"><p>A self-catering kitchenette, inverter air-conditioning, a wall-mounted smart TV, and hotel-grade linen throughout.</p></div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>Is the studio self-catering?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner"><p>Yes — the kitchenette has a hob, fridge, kettle, toaster, and crockery, so you can cook for yourself any time.</p></div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>How do I book my stay?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner"><p>Every "Book Now" link on this page takes you straight to Booking.com for live availability, pricing, and secure payment.</p></div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>Where is the studio located?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner"><p>377 Jack Hindon Street, Pretoria North, Pretoria, 0116 — see the map above for directions.</p></div></div>
+      </div>
+    </div>
   </section>
 
   <section class="rating-section" id="rate-stay" aria-label="Rate your stay">
-    <span class="book-kicker">Your Feedback</span>
-    <h2>Rate Your Stay</h2>
-    <p class="rating-intro">Already stayed with us? Let us know how it went.</p>
-    <form class="rating-form" id="rating-form">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow-lime">Your Feedback</span>
+      <h2>Rate your stay</h2>
+      <p class="rating-intro">Already stayed with us? Let us know how it went.</p>
+    </div>
+    <form class="rating-form reveal" id="rating-form">
       <div class="star-rating" role="radiogroup" aria-label="Star rating out of 5">
         <button type="button" class="star-btn" data-value="1" role="radio" aria-checked="false" aria-label="1 star">★</button>
         <button type="button" class="star-btn" data-value="2" role="radio" aria-checked="false" aria-label="2 stars">★</button>
@@ -195,31 +265,44 @@
       <div class="form-row">
         <textarea name="message" class="form-textarea" rows="3" placeholder="Tell us about your stay (optional)"></textarea>
       </div>
-      <button type="submit" class="btn-gold form-submit">
-        <span>Submit Rating</span>
-        <span aria-hidden="true">→</span>
-      </button>
+      <button type="submit" class="btn-lime form-submit">Submit Rating</button>
       <p class="rating-feedback" aria-live="polite"></p>
     </form>
   </section>
 
   <section class="book-section" id="book" aria-label="Book this stay">
-    <div class="book-inner">
-      <span class="book-kicker">377 Jack Hindon Street</span>
-      <h2>Ready to stay?</h2>
+    <div class="book-inner reveal">
+      <span class="eyebrow eyebrow-lime">Stay</span>
+      <h2>Ready to book your stay?</h2>
       <p>Check live availability and pricing, then book securely straight through Booking.com.</p>
-      <a class="btn-gold btn-large book-cta" href="#" target="_blank" rel="noopener">
-        <span>Book on Booking.com</span>
-        <span aria-hidden="true">↗</span>
-      </a>
+      <a class="btn-lime btn-large book-cta" href="#" target="_blank" rel="noopener">Book Now</a>
       <p class="book-note">You'll be redirected to Booking.com to complete your reservation.</p>
     </div>
-    <footer class="site-footer">
-      <span>377 Jack Hindon Street</span>
-      <span class="footer-dot" aria-hidden="true">•</span>
-      <span>Self-catering studio</span>
-    </footer>
   </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="Footer menu">
+        <a href="#hero">Stay</a>
+        <a href="#studio-grid">The Space</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#location">Location</a>
+        <a href="#faq">FAQ</a>
+        <a href="#rate-stay">Rate Your Stay</a>
+      </nav>
+      <div class="footer-mark" aria-hidden="true">
+        <span class="logo-line">JACK</span>
+        <span class="logo-line">HINDON</span>
+      </div>
+      <div class="footer-contact">
+        <p>377 Jack Hindon Street<br />Pretoria North, Pretoria, 0116</p>
+        <a class="text-link" href="https://www.google.com/maps/place/377+Jack+Hindon+St,+Pretoria+North,+Pretoria,+0116/data=!4m2!3m1!1s0x1ebfd971a13aedbd:0x83f9e724914a2d0d" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
+    <p class="footer-base">377 Jack Hindon Street — Self-catering studio</p>
+  </footer>
+
 </main>
 </body>
 </html>
