@@ -7,6 +7,14 @@
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+  /* ---------- hero video ---------- */
+
+  const heroVideo = document.querySelector(".hero-video");
+  if (heroVideo) {
+    if (reduceMotion.matches) heroVideo.removeAttribute("autoplay");
+    else heroVideo.play().catch(() => {});
+  }
+
   /* ---------- header scroll state ---------- */
 
   const header = document.getElementById("site-header");
