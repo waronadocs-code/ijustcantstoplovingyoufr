@@ -1,342 +1,950 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-ZA">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>A Very Important Question 💍</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bonwa Phala Game Lodge · Private game lodge in Bela-Bela, Limpopo</title>
+<meta name="description" content="Exclusive-use game lodge on a 5,000-hectare private reserve near Bela-Bela, under two hours from Johannesburg and Pretoria. Main Lodge for up to 30 guests, Bush Lodge for 16 to 20. Game drives, weddings, conferences and hunting.">
+<meta name="theme-color" content="#FFC20A">
+<link rel="canonical" href="https://www.bonwaphala.africa/">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bonwa Phala Game Lodge">
+<meta property="og:title" content="Bonwa Phala Game Lodge · Let’s go wild">
+<meta property="og:description" content="Exclusive-use game lodge on a 5,000-hectare private reserve near Bela-Bela, Limpopo.">
+<meta property="og:url" content="https://www.bonwaphala.africa/">
+<meta property="og:image" content="https://www.bonwaphala.africa/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&family=League+Gothic&display=swap" rel="stylesheet">
 <style>
-  /* ============================================
-     EDIT YOUR NAMES + MESSAGE IN THE <script> TAG
-     AT THE BOTTOM OF THIS FILE (CONFIG section)
-     ============================================ */
+/* Layout: stacked full-bleed colour bands like a bush-camp signboard; giant condensed caps lock to the gutters, photos ride right, words ride left. */
+:root{
+  --sun:#FFC20A;
+  --sun-pale:#FFE38C;
+  --mist:#FFF6DA;
+  --paper:#FFFDF6;
+  --ember:#A65400;
+  --ink:#1B140C;
+  --ink-soft:#5B4A33;
+  --night:#120D07;
+  --white:#FFFFFF;
+  --rule:rgba(27,20,12,.2);
+  --rule-strong:rgba(27,20,12,.38);
+  --rule-ember:rgba(166,84,0,.32);
+  --scrim:rgba(18,13,7,.58);
+  --shade-top:rgba(18,13,7,.5);
+  --shade-bottom:rgba(18,13,7,.74);
+  --shadow:0 8px 28px rgba(27,20,12,.16);
 
-  :root{
-    --berry:#B8175C;        /* deep raspberry */
-    --candy:#FF4F8B;        /* candy pink */
-    --peach:#FFB86B;        /* warm peach */
-    --cream:#FFF4E9;        /* soft cream */
-    --ink:#3A1229;          /* plum ink */
-    --mint:#7BE0C3;         /* confetti mint */
-  }
+  --f-display:"League Gothic","Oswald","Arial Narrow",Impact,sans-serif;
+  --f-body:"Archivo","Helvetica Neue",Arial,sans-serif;
 
-  *{margin:0;padding:0;box-sizing:border-box}
+  --gl:max(16px, min(2.2vw, 32px), env(safe-area-inset-left, 0px));
+  --gr:max(16px, min(2.2vw, 32px), env(safe-area-inset-right, 0px));
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:light;
+}
 
-  html,body{height:100%;overflow:hidden}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html.locked{overflow:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.45 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.hero :focus-visible{outline-color:var(--sun)}
+.ico{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{padding-left:var(--gl);padding-right:var(--gr)}
+section[id],footer[id]{scroll-margin-top:0}
 
-  body{
-    font-family:'Baloo 2','Comic Sans MS',system-ui,sans-serif;
-    background:linear-gradient(160deg,#FF87AE 0%,#FF4F8B 45%,#B8175C 100%);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--cream);
-    position:relative;
-  }
+/* ---------- pills ---------- */
+.pill{display:inline-flex;align-items:center;gap:.55em;height:36px;padding:0 17px;border-radius:999px;border:0;background:var(--white);color:var(--ink);font:600 13px/1 var(--f-body);letter-spacing:.05em;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}
+.pill:hover{background:var(--ink);color:var(--sun)}
+.pill svg{width:14px;height:14px;flex:none}
+.pill-round{width:36px;padding:0;justify-content:center}
+.pill-round svg{width:17px;height:17px}
+.pill-ink{background:var(--ink);color:var(--sun)}
+.pill-ink:hover{background:var(--ember);color:var(--white)}
+.pill-line{background:transparent;box-shadow:inset 0 0 0 1.5px currentColor}
+.pill-line:hover{background:var(--ink);color:var(--sun);box-shadow:none}
 
-  /* floating hearts backdrop */
-  .heart-float{
-    position:absolute;bottom:-8vh;
-    font-size:22px;opacity:.5;
-    animation:rise linear infinite;
-    pointer-events:none;
-    user-select:none;
-  }
-  @keyframes rise{
-    from{transform:translateY(0) rotate(0deg)}
-    to{transform:translateY(-115vh) rotate(340deg)}
-  }
-  @media (prefers-reduced-motion: reduce){
-    .heart-float{animation:none;display:none}
-  }
+/* ---------- header ---------- */
+.top{position:fixed;left:0;right:0;top:0;z-index:50;padding-top:calc(env(safe-area-inset-top, 0px) + 22px);transition:transform .45s var(--ease)}
+.top.hide{transform:translateY(calc(-100% - 24px))}
+.top-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:16px}
+.top-left{display:flex;gap:8px}
+.mark{justify-self:center;display:block;text-decoration:none;transition:opacity .3s;filter:drop-shadow(0 3px 14px rgba(18,13,7,.5))}
+.mark img{width:clamp(150px,14vw,210px);height:auto}
+.top.stuck .mark{opacity:0;pointer-events:none}
+.top.stuck .pill,.top.stuck .menu{box-shadow:var(--shadow)}
 
-  .card{
-    text-align:center;
-    padding:2rem;
-    max-width:640px;
-    width:92%;
-    position:relative;
-    z-index:2;
-  }
+.menu{justify-self:end;position:relative;display:flex;align-items:center;border-radius:999px;background:var(--white)}
+.menu-links{display:none;list-style:none;margin:0;padding:0 2px 0 8px;align-items:center;gap:0}
+.menu-links a:not(.pill){display:block;padding:9px 9px;border-radius:999px;font:500 15px/1 var(--f-body);color:var(--ink);text-decoration:none;white-space:nowrap}
+.menu-links a:not(.pill):hover{background:var(--sun)}
+.menu-extra{display:none}
+.menu.open .menu-links{display:flex}
+.menu-btn .i-x{display:none}
+.menu.open .menu-btn .i-x{display:block}
+.menu.open .menu-btn .i-arrow{display:none}
+.menu.open .menu-btn{background:var(--ink);color:var(--sun)}
+@media (min-width:761px){.menu.open .menu-btn{width:36px;padding:0;justify-content:center}.menu.open .menu-btn span{display:none}}
+@media (min-width:761px) and (max-width:1400px){.top.menu-open .mark{opacity:0;pointer-events:none}}
 
-  .eyebrow{
-    display:inline-block;
-    background:rgba(255,244,233,.18);
-    border:2px dashed rgba(255,244,233,.55);
-    border-radius:999px;
-    padding:.35rem 1.1rem;
-    font-size:.95rem;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    margin-bottom:1.2rem;
-  }
+/* ---------- hero ---------- */
+.hero{position:relative;height:100vh;height:100svh;min-height:560px;max-height:1200px;overflow:hidden;background:var(--night);color:var(--white)}
+.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity 1.6s ease}
+.hero-media img.on{opacity:1;animation:kb 10s ease-out forwards}
+@keyframes kb{from{transform:scale(1.03)}to{transform:scale(1.13)}}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,var(--shade-top) 0%,transparent 26%,transparent 46%,var(--shade-bottom) 100%)}
+.hero-copy{position:absolute;left:0;right:0;bottom:0;padding-bottom:clamp(26px,5.5vh,60px)}
+.hero-title{margin:0;font:400 max(60px, min(12.6vw, 25vh))/.84 var(--f-display);text-transform:uppercase;letter-spacing:.004em}
+.hero-title span{display:inline-block;animation:rise 1.1s var(--ease) .15s both}
+.hero-sub{margin:.32em 0 0;font:400 clamp(21px,2.35vw,40px)/1 var(--f-display);text-transform:uppercase;letter-spacing:.025em}
+.hero-sub span{display:inline-block;animation:rise 1s var(--ease) .35s both}
+@keyframes rise{from{transform:translateY(26%)}to{transform:none}}
+.hero-book{display:none;margin-top:20px}
+.hero-cap{position:absolute;right:var(--gr);bottom:clamp(30px,6vh,66px);display:flex;align-items:center;gap:14px;font:600 12px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase}
+.hero-dots{display:flex;gap:6px}
+.hero-dots button{width:26px;height:20px;padding:0;border:0;background:none;cursor:pointer;position:relative}
+.hero-dots button::after{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:currentColor;opacity:.4;transition:opacity .3s}
+.hero-dots button[aria-current="true"]::after{opacity:1;background:var(--sun)}
 
-  h1{
-    font-size:clamp(2rem,6vw,3.6rem);
-    line-height:1.12;
-    text-shadow:0 4px 0 rgba(58,18,41,.25);
-    margin-bottom:.6rem;
-  }
-  h1 .name{color:var(--peach)}
+/* ---------- numbers ---------- */
+.stats{background:var(--mist);color:var(--ember)}
+.stat{min-height:70vh;min-height:70svh;display:grid;place-content:center;justify-items:center;text-align:center;padding-block:7svh}
+.stat-n{margin:0;font:400 min(46vh, 42vw)/.8 var(--f-display);letter-spacing:-.005em;white-space:nowrap}
+.stat-l{margin:.8em 0 0;font:500 clamp(16px,1.5vw,22px)/1.3 var(--f-body);max-width:30ch}
 
-  .sub{
-    font-size:clamp(1rem,2.6vw,1.25rem);
-    opacity:.92;
-    margin-bottom:2.4rem;
-  }
+/* ---------- giant fitted headings ---------- */
+.fit{margin:0;font:400 11vw/.82 var(--f-display);text-transform:uppercase;white-space:nowrap;letter-spacing:.004em}
+.fit>span{display:inline-block}
+.band-head{padding-block:clamp(64px,11vh,130px) clamp(28px,5vh,60px)}
 
-  .ring{
-    font-size:clamp(3.2rem,9vw,5rem);
-    display:inline-block;
-    animation:wobble 2.6s ease-in-out infinite;
-    margin-bottom:1rem;
-  }
-  @keyframes wobble{
-    0%,100%{transform:rotate(-8deg) translateY(0)}
-    50%{transform:rotate(8deg) translateY(-8px)}
-  }
-  @media (prefers-reduced-motion: reduce){ .ring{animation:none} }
+/* ---------- lodges stack ---------- */
+.lodges{background:var(--sun);color:var(--ink)}
+.stack{position:relative}
+.card{position:sticky;top:0;height:100vh;height:100svh;min-height:620px}
+.panel{height:100%;transform-origin:50% 0}
+.card+.card .panel{box-shadow:0 -24px 60px rgba(27,20,12,.14)}
+.p-sun{background:var(--sun);color:var(--ink)}
+.p-mist{background:var(--mist);color:var(--ember)}
+.p-paper{background:var(--paper);color:var(--ember)}
+.p-pale{background:var(--sun-pale);color:var(--ink)}
+.panel-in{height:100%;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,72px);padding-block:clamp(28px,5.5vh,60px)}
+.card-text{display:flex;flex-direction:column;min-width:0;opacity:var(--fade,1)}
+.kicker{margin:0 0 14px;font:600 12px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase}
+.card-title{margin:0;font:600 clamp(46px,6vw,100px)/.9 var(--f-body);font-stretch:88%;letter-spacing:-.045em;text-wrap:balance}
+.price{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px;margin:clamp(14px,2.6vh,26px) 0 0}
+.price strong{font:400 clamp(52px,5.4vw,92px)/.85 var(--f-display);letter-spacing:.01em}
+.price span{font:500 15px/1.2 var(--f-body)}
+.facts{list-style:none;padding:0;margin:clamp(16px,3vh,28px) 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.facts li{padding:7px 13px;border-radius:999px;box-shadow:inset 0 0 0 1.5px currentColor;font:500 14px/1 var(--f-body);white-space:nowrap}
+.card-foot{margin-top:auto;padding-top:24px;display:grid;justify-items:start;gap:18px}
+.card-desc{margin:0;font-size:clamp(17px,1.45vw,22px);line-height:1.38;max-width:36ch}
+.card-img{margin:0;min-height:0;height:100%;overflow:hidden;background:var(--night)}
+.card-img img{width:100%;height:100%;object-fit:cover}
 
-  .buttons{
-    display:flex;
-    gap:1.2rem;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    min-height:120px;
-  }
+/* ---------- interlude ---------- */
+.vibes,.and{position:relative;background:var(--sun-pale)}
+.vibes{height:260vh;height:260svh}
+.and{height:280vh;height:280svh}
+.stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.v-word{position:absolute;margin:0;font:400 min(34vh, 30vw)/.8 var(--f-display);text-transform:uppercase;color:var(--white);white-space:nowrap}
+.v-a{top:5svh;left:var(--gl);transform:translateX(calc(var(--p,0) * -48vw))}
+.v-b{bottom:3svh;right:var(--gr);transform:translateX(calc(var(--p,0) * 48vw))}
+.v-mid{position:absolute;left:50%;top:50%;margin:0;transform:translate(-50%,-50%);font:400 calc(var(--fs,40) * 1px)/.86 var(--f-display);color:var(--ember);text-transform:uppercase;white-space:nowrap;text-align:center}
+.wipe{position:absolute;inset:0;display:flex;pointer-events:none}
+.wipe i{flex:1 0 0;margin-left:-1px;background:var(--sun);transform:translateY(101%)}
 
-  button{
-    font-family:inherit;
-    font-weight:700;
-    border:none;
-    border-radius:999px;
-    cursor:pointer;
-    transition:transform .12s ease, box-shadow .12s ease;
-  }
-  button:focus-visible{outline:4px solid var(--mint);outline-offset:3px}
+.and-stick{display:flex;align-items:center}
+.and-line{display:inline-block;margin:0;padding-left:var(--gl);font:400 min(54vh, 46vw)/.8 var(--f-display);text-transform:uppercase;color:var(--white);white-space:nowrap}
+.and-line b{font-weight:400;color:var(--ember)}
 
-  #yesBtn{
-    background:var(--cream);
-    color:var(--berry);
-    font-size:1.4rem;
-    padding:1rem 2.6rem;
-    box-shadow:0 6px 0 rgba(58,18,41,.3);
-  }
-  #yesBtn:hover{transform:translateY(-3px) scale(1.04)}
-  #yesBtn:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(58,18,41,.3)}
+/* ---------- facilities ---------- */
+.facil{background:var(--sun);color:var(--ink)}
+.facil-intro{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:16px 40px;padding-bottom:clamp(28px,5vh,52px)}
+.facil-intro p{margin:0;max-width:44ch;font-size:clamp(17px,1.4vw,21px);line-height:1.4}
+.facil-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--rule)}
+.facil-grid li{aspect-ratio:1/.8;display:grid;place-content:center;justify-items:center;gap:16px;padding:16px;text-align:center;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);transition:background .25s}
+.facil-grid li:nth-child(5n){border-right:0}
+.facil-grid li:hover{background:var(--sun-pale)}
+.facil-grid svg{width:clamp(30px,3vw,44px);height:clamp(30px,3vw,44px);stroke-width:1.4}
+.facil-grid span{font:600 12.5px/1.3 var(--f-body);letter-spacing:.11em;text-transform:uppercase;max-width:17ch}
 
-  #noBtn{
-    background:rgba(58,18,41,.35);
-    color:var(--cream);
-    font-size:1.05rem;
-    padding:.8rem 1.8rem;
-    box-shadow:0 4px 0 rgba(58,18,41,.35);
-  }
-  #noBtn.fleeing{
-    position:fixed;
-    z-index:5;
-    transition:left .18s ease, top .18s ease;
-  }
+/* ---------- experiences ---------- */
+.xp{background:var(--paper);color:var(--ember);padding-block:clamp(70px,12vh,140px) clamp(50px,9vh,110px)}
+.squash>span{transform-origin:0 100%;transform:scaleY(var(--sy,1))}
+.rows{list-style:none;margin:clamp(40px,8vh,96px) 0 0;padding:0;border-top:1px solid var(--rule-ember)}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto;gap:12px clamp(20px,4vw,64px);padding-block:clamp(22px,3.8vh,38px);border-bottom:1px solid var(--rule-ember);transition:background .25s}
+.row:hover{background:var(--mist)}
+.row h3{margin:0;font:600 clamp(25px,2.7vw,42px)/1 var(--f-body);font-stretch:92%;letter-spacing:-.035em}
+.tag{justify-self:start;align-self:start;padding:6px 11px;border-radius:999px;box-shadow:inset 0 0 0 1.2px var(--rule-ember);font:600 11.5px/1 var(--f-body);letter-spacing:.12em;text-transform:uppercase}
+.row p{grid-column:2;grid-row:1/3;align-self:end;margin:0;padding-top:1.6em;max-width:48ch;font-size:clamp(16px,1.25vw,19px);line-height:1.45}
 
-  .taunt{
-    margin-top:1.4rem;
-    min-height:1.6em;
-    font-size:1.05rem;
-    color:var(--peach);
-    font-weight:700;
-  }
+/* ---------- reviews ---------- */
+.reviews{position:relative;background:var(--mist);color:var(--ink)}
+.rv-stick{position:sticky;top:0;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding-block:clamp(56px,9vh,100px)}
+.scatter{margin:0 0 clamp(36px,7vh,84px);text-align:center;font:600 clamp(40px,6.3vw,108px)/1.02 var(--f-body);font-stretch:90%;letter-spacing:-.04em;text-transform:uppercase;color:var(--ink)}
+.scatter .w{display:inline-block;white-space:nowrap}
+.scatter .ch{display:inline-block;transform:translate(calc(var(--dx) * var(--k,0) * 1em), calc(var(--dy) * var(--k,0) * 1em)) rotate(calc(var(--r) * var(--k,0) * 1deg))}
+.rv-track{display:flex;width:max-content;padding-left:var(--gl);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.rv{width:clamp(290px,29.5vw,430px);min-height:clamp(320px,46svh,440px);display:flex;flex-direction:column;gap:14px;padding:clamp(22px,2.2vw,32px);border-right:1px solid var(--rule)}
+.rv:first-child{border-left:1px solid var(--rule)}
+.rv h3{margin:0;font:500 clamp(21px,1.7vw,26px)/1.1 var(--f-body);letter-spacing:-.02em}
+.stars{display:flex;gap:3px;color:var(--ember)}
+.stars svg{width:14px;height:14px}
+.rv blockquote{margin:0;font-size:16px;line-height:1.5;color:var(--ink-soft)}
+.rv footer{margin-top:auto;font:500 13px/1.4 var(--f-body)}
+.rv footer span{display:block;color:var(--ink-soft);font-weight:400}
+.rv-note{margin:22px 0 0;font-size:13px;color:var(--ink-soft)}
 
-  /* success screen */
-  #success{
-    display:none;
-    text-align:center;
-    padding:2rem;
-    z-index:2;
-  }
-  #success h2{
-    font-size:clamp(2.4rem,7vw,4.2rem);
-    text-shadow:0 4px 0 rgba(58,18,41,.25);
-    margin-bottom:.8rem;
-  }
-  #success p{
-    font-size:clamp(1.05rem,2.6vw,1.3rem);
-    line-height:1.55;
-    opacity:.97;
-    max-width:52ch;
-    margin:0 auto;
-  }
-  .pop{animation:pop .5s cubic-bezier(.2,1.6,.4,1) both}
-  @keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+/* ---------- footer ---------- */
+.foot{background:var(--sun);color:var(--ink);padding-block:clamp(48px,9vh,100px) calc(26px + env(safe-area-inset-bottom, 0px))}
+.contact{display:grid;justify-items:center;gap:12px;margin-top:clamp(36px,7vh,72px);text-align:center}
+.mail-row{display:flex;align-items:center;flex-wrap:wrap;justify-content:center;gap:12px}
+.mail{text-decoration:none;font:500 clamp(21px,2.2vw,32px)/1.2 var(--f-body);letter-spacing:-.01em;user-select:all;overflow-wrap:anywhere}
+.contact-lines{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;font-size:16px}
+.contact-lines p{margin:0}
+.contact-lines b{font-weight:600}
+.contact-lines a{text-decoration:none}
+.contact-lines a:hover{text-decoration:underline}
+.addr{margin:0;color:var(--ink-soft);font-size:15px}
+.socials{display:flex;justify-content:center;gap:10px;margin-top:clamp(24px,4vh,40px)}
+.socials a{width:clamp(62px,6.4vw,86px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;color:var(--ink);box-shadow:inset 0 0 0 1px var(--rule-strong);transition:background .2s,color .2s}
+.socials a:hover{background:var(--ink);color:var(--sun)}
+.socials svg{width:22px;height:22px;stroke-width:1.6}
+.foot .mark{margin:clamp(40px,8vh,80px) auto 0;width:max-content;filter:none;background:var(--ink);padding:clamp(18px,2.4vw,30px) clamp(26px,3.2vw,44px);border-radius:28px}
+.foot .mark img{width:clamp(170px,16vw,240px)}
+.legal{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px 24px;margin-top:clamp(40px,7vh,70px);font-size:13px}
+.legal nav{display:flex;gap:16px}
+.legal a{text-decoration:none}
+.legal a:hover{text-decoration:underline}
 
-  canvas#confetti{
-    position:fixed;inset:0;
-    pointer-events:none;
-    z-index:10;
-  }
+/* ---------- booking panel ---------- */
+.book{position:fixed;inset:0;z-index:100;display:flex;justify-content:flex-end}
+.book-scrim{position:absolute;inset:0;background:var(--scrim);animation:fade .3s ease both}
+.book-card{position:relative;width:min(560px,100%);height:100%;overflow:auto;overscroll-behavior:contain;background:var(--paper);color:var(--ink);display:flex;flex-direction:column;animation:slide .5s var(--ease) both}
+.book-head{background:var(--sun);padding:calc(env(safe-area-inset-top, 0px) + 22px) max(24px, env(safe-area-inset-right, 0px)) 22px 28px;display:grid;grid-template-columns:1fr auto;gap:8px 16px;align-items:start}
+.book-head h2{margin:0;font:400 clamp(48px,6vw,68px)/.84 var(--f-display);text-transform:uppercase}
+.book-head p{grid-column:1/-1;margin:0;font-size:15px;line-height:1.4;max-width:42ch}
+.book-body{display:grid;gap:18px;padding:24px max(24px, env(safe-area-inset-right, 0px)) calc(env(safe-area-inset-bottom, 0px) + 30px) 28px}
+@keyframes fade{from{opacity:0}}
+@keyframes slide{from{transform:translateX(40px);opacity:0}}
+.lodge-pick{display:grid;grid-template-columns:1fr 1fr;gap:10px;border:0;padding:0;margin:0;min-width:0}
+.lodge-pick legend,.fld>span{display:block;margin-bottom:8px;font:600 11.5px/1 var(--f-body);letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft)}
+.lodge-pick label{position:relative;cursor:pointer}
+.lodge-pick input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.lodge-pick .opt{display:grid;gap:5px;height:100%;padding:14px 16px;border-radius:16px;background:var(--white);box-shadow:inset 0 0 0 1.5px var(--rule-strong);transition:background .2s}
+.opt b{font:400 30px/.9 var(--f-display);text-transform:uppercase;letter-spacing:.01em}
+.opt small{font-size:13.5px;line-height:1.35;color:var(--ink-soft)}
+.lodge-pick input:checked+.opt{background:var(--sun);box-shadow:inset 0 0 0 2px var(--ink)}
+.lodge-pick input:checked+.opt small{color:var(--ink)}
+.lodge-pick input:focus-visible+.opt{outline:3px solid var(--ink);outline-offset:3px}
+.trio{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);gap:10px}
+.fld{display:block;min-width:0}
+.fld input,.fld select,.fld textarea{width:100%;min-width:0;padding:12px 14px;border:0;border-radius:12px;background:var(--white);box-shadow:inset 0 0 0 1.5px var(--rule-strong);font:400 16px/1.3 var(--f-body);color:var(--ink);appearance:none;-webkit-appearance:none}
+.fld select{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 20px) 52%,calc(100% - 15px) 52%;background-size:5px 5px;background-repeat:no-repeat;padding-right:36px}
+.fld textarea{resize:vertical;min-height:84px}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;box-shadow:inset 0 0 0 2px var(--ink),0 0 0 4px var(--sun)}
+.cap-note{margin:-6px 0 0;font-size:14px;color:var(--ember);font-weight:600}
+.est{display:grid;grid-template-columns:auto 1fr;align-items:end;gap:4px 16px;padding:18px;border-radius:16px;background:var(--mist)}
+.est-k{grid-column:1/-1;font:600 11.5px/1 var(--f-body);letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft)}
+.est strong{font:400 56px/.86 var(--f-display);letter-spacing:.01em}
+.est small{font-size:13.5px;line-height:1.35;color:var(--ink-soft);padding-bottom:4px}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.actions .pill{height:46px;padding:0 22px;font-size:14px}
+.fine{margin:0;font-size:14px;line-height:1.5;color:var(--ink-soft)}
+.fine span{user-select:all;color:var(--ink);font-weight:600}
+.copy-fallback{width:100%;min-height:150px;padding:12px;border-radius:12px;border:0;box-shadow:inset 0 0 0 1.5px var(--rule-strong);font:400 14px/1.4 var(--f-body);background:var(--white);color:var(--ink)}
+.x{width:44px;height:44px;border-radius:50%;border:0;background:var(--ink);color:var(--sun);display:grid;place-items:center;cursor:pointer}
+.x svg{width:18px;height:18px}
 
-  /* Apple-style emoji images */
-  .apple-emoji{
-    display:inline-block;
-    vertical-align:-0.15em;
-    width:1em;height:1em;
-    object-fit:contain;
-  }
-  .ring-img{width:clamp(3.2rem,9vw,5rem);height:auto}
-  .btn-emoji{width:1.2em;height:1.2em;vertical-align:-0.25em}
-  .h2-emoji{width:1em;height:1em;vertical-align:-0.12em}
-  .success-emojis{margin-top:1.4rem;display:flex;gap:1rem;justify-content:center}
-  .big-emoji{width:3rem;height:3rem}
+/* ---------- responsive ---------- */
+@media (max-width:960px){
+  .menu-links a:not(.pill){padding:9px 7px;font-size:14px}
+}
+@media (max-width:860px){
+  .card{position:relative;height:auto;min-height:0}
+  .panel{transform:none!important;box-shadow:none!important}
+  .card-text{opacity:1!important}
+  .panel-in{grid-template-columns:1fr;padding-block:36px 48px;gap:26px}
+  .card-img{order:-1;height:auto;aspect-ratio:3/2}
+  .card-foot{padding-top:28px}
+  .facil-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facil-grid li:nth-child(n){border-right:1px solid var(--rule)}
+  .facil-grid li:nth-child(2n){border-right:0}
+  .row{grid-template-columns:1fr;grid-template-rows:auto}
+  .row p{grid-column:1;grid-row:auto;padding-top:4px}
+  .reviews{height:auto!important}
+  .rv-stick{position:relative;min-height:0}
+  .rv-track{width:auto;overflow-x:auto;scroll-snap-type:x mandatory;transform:none!important;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+  .rv{flex:none;width:min(82vw,380px);scroll-snap-align:start}
+}
+@media (max-width:760px){
+  .top{padding-top:calc(env(safe-area-inset-top, 0px) + 16px)}
+  .top-in{display:flex;justify-content:space-between;align-items:flex-start}
+  .top-left{display:none}
+  .mark img{width:118px}
+  .menu{background:transparent}
+  .menu-btn{position:relative;z-index:2}
+  .menu.open .menu-links{position:fixed;inset:0;z-index:1;flex-direction:column;align-items:flex-start;justify-content:center;gap:0;padding:90px var(--gr) calc(env(safe-area-inset-bottom, 0px) + 40px) var(--gl);background:var(--sun);overflow:auto}
+  .menu.open .menu-links a:not(.pill){padding:2px 0;font:400 clamp(56px,17vw,92px)/.92 var(--f-display);text-transform:uppercase;border-radius:0}
+  .menu.open .menu-links a:not(.pill):hover{background:none;color:var(--ember)}
+  .menu.open .menu-extra{display:flex;gap:8px;margin-top:28px}
+  .hero-book{display:inline-flex}
+  .hero-cap{bottom:auto;top:calc(env(safe-area-inset-top, 0px) + 92px)}
+  .hero-cap .cap-text{display:none}
+  .trio{grid-template-columns:1fr 1fr}
+  .trio .fld:first-child{grid-column:1/-1}
+  .legal{justify-content:center;text-align:center}
+}
+@media (max-width:420px){
+  .lodge-pick{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-media img{transition:none}
+  .hero-media img.on{animation:none;transform:none}
+  .hero-title span,.hero-sub span{animation:none}
+  .vibes,.and{height:auto}
+  .stick{position:relative;height:auto;min-height:70svh;display:grid;place-items:center;padding-block:10svh}
+  .v-word,.v-mid{position:static;transform:none}
+  .v-mid{font-size:clamp(36px,6vw,90px)}
+  .vibes .stick{grid-auto-flow:row;gap:2svh}
+  .and-line{white-space:normal;padding-right:var(--gr);font-size:min(30vh,24vw)}
+  .wipe{display:none}
+  .card{position:relative;height:auto;min-height:0}
+  .panel{transform:none!important}
+  .panel-in{min-height:90svh}
+  .reviews{height:auto!important}
+  .rv-stick{position:relative;min-height:0}
+  .rv-track{width:auto;overflow-x:auto;transform:none!important}
+  .rv{flex:none}
+  .scatter .ch{transform:none}
+  .squash>span{transform:none}
+}
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<canvas id="confetti"></canvas>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11.2M9.2 3.6 13.6 8l-4.4 4.4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 16 16"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="i-star" viewBox="0 0 16 16"><path d="M8 1.2l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 12l-4.2 2.2.8-4.7L1.2 6.2l4.7-.7z" fill="currentColor"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M3.6 20.4l1.3-4.3A8.6 8.6 0 1 1 8 19.2z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.1 7.6c.3-.3.8-.3 1 .1l.9 1.7c.2.3.1.7-.1 1l-.6.6c.6 1.3 1.6 2.3 2.9 2.9l.6-.6c.3-.3.7-.3 1-.1l1.7.9c.4.2.4.7.1 1-.7.8-1.7 1.2-2.7.9-2.6-.8-4.8-3-5.6-5.6-.3-1 .1-2 .8-2.8z" fill="currentColor"/></symbol>
+  <symbol id="l-baby" viewBox="0 0 24 24"><path d="M9 12h.01" /><path d="M15 12h.01" /><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5" /><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1" /></symbol>
+  <symbol id="l-bed-double" viewBox="0 0 24 24"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8" /><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4" /><path d="M12 4v6" /><path d="M2 18h20" /></symbol>
+  <symbol id="l-concierge-bell" viewBox="0 0 24 24"><path d="M3 20a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1Z" /><path d="M20 16a8 8 0 1 0-16 0" /><path d="M12 4v4" /><path d="M10 4h4" /></symbol>
+  <symbol id="l-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></symbol>
+  <symbol id="l-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></symbol>
+  <symbol id="l-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></symbol>
+  <symbol id="l-paw-print" viewBox="0 0 24 24"><circle cx="11" cy="4" r="2" /><circle cx="18" cy="8" r="2" /><circle cx="20" cy="16" r="2" /><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" /></symbol>
+  <symbol id="l-presentation" viewBox="0 0 24 24"><path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /></symbol>
+  <symbol id="l-snowflake" viewBox="0 0 24 24"><line x1="2" x2="22" y1="12" y2="12" /><line x1="12" x2="12" y1="2" y2="22" /><path d="m20 16-4-4 4-4" /><path d="m4 8 4 4-4 4" /><path d="m16 4-4 4-4-4" /><path d="m8 20 4-4 4 4" /></symbol>
+  <symbol id="l-tv" viewBox="0 0 24 24"><rect width="20" height="15" x="2" y="7" rx="2" ry="2" /><polyline points="17 2 12 7 7 2" /></symbol>
+  <symbol id="l-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" /><path d="M7 2v20" /><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></symbol>
+  <symbol id="l-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" /><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" /><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" /></symbol>
+  <symbol id="l-wifi" viewBox="0 0 24 24"><path d="M12 20h.01" /><path d="M2 8.82a15 15 0 0 1 20 0" /><path d="M5 12.859a10 10 0 0 1 14 0" /><path d="M8.5 16.429a5 5 0 0 1 7 0" /></symbol>
+</svg>
 
-<div class="card" id="question">
-  <span class="ring" aria-hidden="true"><img class="apple-emoji ring-img" src="https://emojicdn.elk.sh/💍?style=apple" alt="💍"></span><br>
-  <span class="eyebrow">A very important question</span>
-  <h1>Hi <span class="name" id="herName"></span>, will you be my life partner?</h1>
-  <p class="sub" id="subLine"></p>
-  <div class="buttons">
-    <button id="yesBtn">YES! <img class="apple-emoji btn-emoji" src="https://emojicdn.elk.sh/❤️?style=apple" alt="❤️"></button>
-    <button id="noBtn">No</button>
+<header class="top" id="siteHeader">
+  <div class="top-in wrap">
+    <div class="top-left">
+      <button class="pill" type="button" data-book=""><svg><use href="#i-arrow"/></svg>Book now</button>
+      <a class="pill pill-round" href="https://wa.me/27761300915" target="_blank" rel="noopener" aria-label="WhatsApp Bonwa Phala"><svg><use href="#i-wa"/></svg></a>
+    </div>
+    <a class="mark" href="#top" aria-label="Bonwa Phala Game Lodge, back to top">
+      <img src="img/logo.png" width="595" height="361" alt="Bonwa Phala Game Lodge">
+    </a>
+    <nav class="menu" id="menu" aria-label="Main">
+      <ul class="menu-links" id="menuLinks">
+        <li><a href="#lodges">Lodges</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#experiences">Experiences</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="menu-extra">
+          <button class="pill pill-ink" type="button" data-book=""><svg><use href="#i-arrow"/></svg>Book now</button>
+          <a class="pill pill-round" href="https://wa.me/27761300915" target="_blank" rel="noopener" aria-label="WhatsApp Bonwa Phala"><svg><use href="#i-wa"/></svg></a>
+        </li>
+      </ul>
+      <button class="pill menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuLinks">
+        <svg class="i-arrow"><use href="#i-arrow"/></svg><svg class="i-x"><use href="#i-x"/></svg><span>Menu</span>
+      </button>
+    </nav>
   </div>
-  <div class="taunt" id="taunt" aria-live="polite"></div>
-</div>
+</header>
 
-<div class="card" id="success">
-  <h2 class="pop">SHE SAID YES!!! <img class="apple-emoji h2-emoji" src="https://emojicdn.elk.sh/🎉?style=apple" alt="🎉"></h2>
-  <p class="pop" id="successLine"></p>
-  <div class="pop success-emojis">
-    <img class="apple-emoji big-emoji" src="https://emojicdn.elk.sh/💍?style=apple" alt="💍">
-    <img class="apple-emoji big-emoji" src="https://emojicdn.elk.sh/❤️?style=apple" alt="❤️">
-    <img class="apple-emoji big-emoji" src="https://emojicdn.elk.sh/🥂?style=apple" alt="🥂">
+<main>
+  <section class="hero" id="top" aria-label="Welcome">
+    <div class="hero-media">
+      <img class="on" src="img/reception-exterior.jpg" srcset="img/reception-exterior-sm.jpg 800w, img/reception-exterior.jpg 1536w" sizes="100vw" width="1536" height="1024" alt="Thatched stone reception building lit up at dusk under a large tree" fetchpriority="high">
+      <img src="img/reception.jpg" srcset="img/reception-sm.jpg 800w, img/reception.jpg 1536w" sizes="100vw" width="1536" height="1024" alt="Reception desk with a stone front, woven pendant lights and wildlife prints" loading="lazy">
+      <img src="img/chalet.jpg" srcset="img/chalet-sm.jpg 800w, img/chalet.jpg 1536w" sizes="100vw" width="1536" height="1024" alt="Chalet bedroom under a thatched A-frame roof with an elephant artwork above the bed" loading="lazy">
+    </div>
+    <div class="hero-shade"></div>
+    <div class="hero-copy wrap">
+      <h1 class="hero-title"><span>Let’s go wild</span></h1>
+      <p class="hero-sub"><span>Private game lodge · Bela-Bela, Limpopo</span></p>
+      <button class="pill hero-book" type="button" data-book=""><svg><use href="#i-arrow"/></svg>Book your stay</button>
+    </div>
+    <div class="hero-cap">
+      <span class="cap-text" id="heroCap" aria-live="polite">Reception at dusk</span>
+      <div class="hero-dots" id="heroDots">
+        <button type="button" aria-label="Photo 1: Reception at dusk" aria-current="true"></button>
+        <button type="button" aria-label="Photo 2: Reception"></button>
+        <button type="button" aria-label="Photo 3: Chalet"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" id="numbers" aria-label="Bonwa Phala in numbers">
+    <div class="stat"><p class="stat-n" data-count="5000"><span class="num">5000</span></p><p class="stat-l">Hectares of private bushveld</p></div>
+    <div class="stat"><p class="stat-n" data-count="50"><span class="num">50</span>+</p><p class="stat-l">Animal species on the reserve</p></div>
+    <div class="stat"><p class="stat-n" data-count="35"><span class="num">35</span>+</p><p class="stat-l">Years of welcoming guests</p></div>
+    <div class="stat"><p class="stat-n" data-count="2"><span class="num">2</span>H</p><p class="stat-l">Under two hours from Johannesburg and Pretoria</p></div>
+  </section>
+
+  <section class="lodges" id="lodges" aria-labelledby="lodgesTitle">
+    <div class="band-head wrap"><h2 class="fit" id="lodgesTitle" data-fit=""><span>Our lodges &amp; spaces</span></h2></div>
+    <div class="stack">
+      <article class="card">
+        <div class="panel p-sun"><div class="panel-in wrap">
+          <div class="card-text">
+            <p class="kicker">Stay · up to 30 guests</p>
+            <h3 class="card-title">Main Lodge</h3>
+            <p class="price"><strong>R12,000</strong><span>per night, whole lodge</span></p>
+            <ul class="facts"><li>10 en-suite chalets</li><li>Air-conditioned</li><li>Pool &amp; thatched lapa</li><li>DStv lounge</li></ul>
+            <div class="card-foot">
+              <button class="pill" type="button" data-book="main"><svg><use href="#i-arrow"/></svg>Book the Main Lodge</button>
+              <p class="card-desc">Ten open-plan thatched chalets, each with its own patio, around a central lodge with a dining room, covered bar and rustic boma.</p>
+            </div>
+          </div>
+          <figure class="card-img"><img src="img/lounge.jpg" srcset="img/lounge-sm.jpg 800w, img/lounge.jpg 1536w" sizes="(max-width:860px) 100vw, 58vw" width="1536" height="1024" alt="Main Lodge lounge with linen sofas, a round timber table and a wide window onto the bush" loading="lazy"></figure>
+        </div></div>
+      </article>
+
+      <article class="card">
+        <div class="panel p-mist"><div class="panel-in wrap">
+          <div class="card-text">
+            <p class="kicker">Stay · 16 to 20 guests</p>
+            <h3 class="card-title">Bush Lodge</h3>
+            <p class="price"><strong>R6,000</strong><span>per night, whole camp</span></p>
+            <ul class="facts"><li>Tented en-suite chalets</li><li>Coffee station</li><li>Bar fridge</li><li>Open-air boma</li></ul>
+            <div class="card-foot">
+              <button class="pill" type="button" data-book="bush"><svg><use href="#i-arrow"/></svg>Book the Bush Lodge</button>
+              <p class="card-desc">A tented bush camp around a thatched communal area with indoor dining, a lounge and its own boma. The bushveld starts at your door.</p>
+            </div>
+          </div>
+          <figure class="card-img"><img src="img/bush-lodge-room.jpg" srcset="img/bush-lodge-room-sm.jpg 800w, img/bush-lodge-room.jpg 1536w" sizes="(max-width:860px) 100vw, 58vw" width="1536" height="1024" alt="Bush Lodge bedroom with a king bed, patterned throw and elephant artwork under a thatched roof" loading="lazy"></figure>
+        </div></div>
+      </article>
+
+      <article class="card">
+        <div class="panel p-paper"><div class="panel-in wrap">
+          <div class="card-text">
+            <p class="kicker">Eat</p>
+            <h3 class="card-title">Dining room</h3>
+            <ul class="facts"><li>Catering on request</li><li>Self-catering facilities</li><li>Stone fireplace</li></ul>
+            <div class="card-foot">
+              <button class="pill pill-line" type="button" data-book=""><svg><use href="#i-arrow"/></svg>Ask about catering</button>
+              <p class="card-desc">Eat indoors beside the fire, or carry dinner out to the boma. Catering is available on request, and the Main Lodge has self-catering facilities.</p>
+            </div>
+          </div>
+          <figure class="card-img"><img src="img/dining.jpg" srcset="img/dining-sm.jpg 800w, img/dining.jpg 1536w" sizes="(max-width:860px) 100vw, 58vw" width="1536" height="1024" alt="Dining room with laid tables, woven pendant lamps and a stone fireplace" loading="lazy"></figure>
+        </div></div>
+      </article>
+
+      <article class="card">
+        <div class="panel p-pale"><div class="panel-in wrap">
+          <div class="card-text">
+            <p class="kicker">Drink</p>
+            <h3 class="card-title">The bar</h3>
+            <ul class="facts"><li>Covered bar</li><li>Opens onto the boma</li></ul>
+            <div class="card-foot">
+              <button class="pill" type="button" data-book=""><svg><use href="#i-arrow"/></svg>Enquire</button>
+              <p class="card-desc">A cosy covered bar that opens straight onto the boma, for sundowners after the afternoon drive.</p>
+            </div>
+          </div>
+          <figure class="card-img"><img src="img/bar.jpg" srcset="img/bar-sm.jpg 800w, img/bar.jpg 1536w" sizes="(max-width:860px) 100vw, 58vw" width="1536" height="1024" alt="Bar with a live-edge timber counter, backlit shelves and woven leather stools" loading="lazy"></figure>
+        </div></div>
+      </article>
+
+      <article class="card">
+        <div class="panel p-sun"><div class="panel-in wrap">
+          <div class="card-text">
+            <p class="kicker">Gather</p>
+            <h3 class="card-title">The boma</h3>
+            <ul class="facts"><li>Fireside dinners</li><li>Bush weddings</li><li>Under the stars</li></ul>
+            <div class="card-foot">
+              <button class="pill" type="button" data-book=""><svg><use href="#i-arrow"/></svg>Plan an event</button>
+              <p class="card-desc">An intimate open-air boma for long evenings around the fire. Eat outside at the fire, or retreat to the dining room when the night turns cool.</p>
+            </div>
+          </div>
+          <figure class="card-img"><img src="img/boma.jpg" srcset="img/boma-sm.jpg 800w, img/boma.jpg 1536w" sizes="(max-width:860px) 100vw, 58vw" width="1536" height="1024" alt="Open-air boma at night with a stone fire pit, curved bench seating and lanterns" loading="lazy"></figure>
+        </div></div>
+      </article>
+
+      <article class="card">
+        <div class="panel p-mist"><div class="panel-in wrap">
+          <div class="card-text">
+            <p class="kicker">Play</p>
+            <h3 class="card-title">Games room</h3>
+            <ul class="facts"><li>Pool table</li><li>Arcade cabinet</li></ul>
+            <div class="card-foot">
+              <button class="pill" type="button" data-book=""><svg><use href="#i-arrow"/></svg>Enquire</button>
+              <p class="card-desc">A pool table and an arcade cabinet for slow afternoons between game drives.</p>
+            </div>
+          </div>
+          <figure class="card-img"><img src="img/games-room.jpg" srcset="img/games-room-sm.jpg 800w, img/games-room.jpg 1536w" sizes="(max-width:860px) 100vw, 58vw" width="1536" height="1024" alt="Games room with a pool table, cue rack, kudu artwork and an arcade machine" loading="lazy"></figure>
+        </div></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="vibes" aria-hidden="true">
+    <div class="stick">
+      <p class="v-word v-a">Wild</p>
+      <p class="v-word v-b">at heart</p>
+      <p class="v-mid">Bushveld vibes</p>
+      <div class="wipe"><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </section>
+
+  <section class="facil" id="facilities" aria-labelledby="facilTitle">
+    <div class="band-head wrap"><h2 class="fit" id="facilTitle" data-fit=""><span>What we offer</span></h2></div>
+    <div class="facil-intro wrap">
+      <p>Every stay is exclusive. Book the Main Lodge or the Bush Lodge and the whole place is yours, from the chalets to the boma.</p>
+      <button class="pill" type="button" data-book=""><svg><use href="#i-arrow"/></svg>Plan your stay</button>
+    </div>
+    <ul class="facil-grid">
+      <li><svg class="ico" aria-hidden="true"><use href="#l-paw-print"/></svg><span>Game drives</span></li>
+      <li><svg class="ico" aria-hidden="true"><use href="#l-wifi"/></svg><span>Free Wi-Fi</span></li>
+      <li><svg class="ico" aria-hidden="true"><use href="#l-snowflake"/></svg><span>Air-conditioned rooms</span></li>
+      <li><svg class="ico" aria-hidden="true"><use href="#l-utensils"/></svg><span>Catering on request</span></li>
+      <li><svg class="ico" aria-hidden="true"><use href="#l-waves"/></svg><span>Swimming pool</span></li>
+      <li><svg class="ico" aria-hidden="true"><use href="#l-bed-double"/></svg><span>Daily housekeeping</span></li>
+      <li><svg class="ico" aria-hidden="true"><use href="#l-concierge-bell"/></svg><span>Reception, business hours</span></li>
+      <li><svg class="ico" aria-hidden="true"><use href="#l-baby"/></svg><span>Child friendly, all ages</span></li>
+      <li><svg class="ico" aria-hidden="true"><use href="#l-tv"/></svg><span>DStv guest lounge</span></li>
+      <li><svg class="ico" aria-hidden="true"><use href="#l-presentation"/></svg><span>Conference centre</span></li>
+    </ul>
+  </section>
+
+  <section class="xp" id="experiences" aria-labelledby="xpTitle">
+    <div class="wrap">
+      <h2 class="fit squash" id="xpTitle" data-fit=""><span>More than a stay</span></h2>
+      <ul class="rows">
+        <li class="row"><h3>Game drives</h3><span class="tag">On the reserve</span><p>More than 50 animal species live on the 5,000-hectare reserve. Head out with a guide in the early morning or late afternoon.</p></li>
+        <li class="row"><h3>Photographic safaris</h3><span class="tag">On the reserve</span><p>Smaller groups, more guides per photographer and comfortable lodging between shoots, built around the best light.</p></li>
+        <li class="row"><h3>Hunting packages</h3><span class="tag">On the reserve</span><p>Plains game and buffalo packages with professional, well-trained guides and comfortable hunting accommodation.</p></li>
+        <li class="row"><h3>Weddings</h3><span class="tag">Events</span><p>Say your vows beneath the Rock Fig or a majestic Marula tree, then dine in the bush. Small, affordable and entirely yours.</p></li>
+        <li class="row"><h3>Conferences &amp; retreats</h3><span class="tag">Events</span><p>A fully equipped conference centre at the Main Lodge, with the reserve on hand for breakaways and team time.</p></li>
+        <li class="row"><h3>Celebrations</h3><span class="tag">Events</span><p>Birthdays, bachelor and bachelorette weekends, family reunions and corporate outings, with the lodge to yourselves.</p></li>
+        <li class="row"><h3>Golf, spa &amp; day trips</h3><span class="tag">Nearby</span><p>Zebula Golf Estate &amp; Spa is about 10 minutes away. Fercare Wildlife Centre and Adventures with Elephants are close by too.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews" aria-labelledby="rvTitle">
+    <div class="rv-stick" id="rvStick">
+      <h2 class="scatter wrap" id="rvTitle" aria-label="Tales from the boma"><span class="chars" aria-hidden="true">Tales from the boma</span></h2>
+      <div class="rv-track" id="rvTrack">
+        <article class="rv">
+          <h3>Chene Hardenberg</h3>
+          <div class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+          <blockquote>Absolutely amazing experience at Bonwa Phala from start to finish. Beautiful setting, incredible wildlife sightings, and such friendly, knowledgeable staff. The whole place is well run and feels…</blockquote>
+          <footer>Google review<span>8 months ago</span></footer>
+        </article>
+        <article class="rv">
+          <h3>Charmian Lamprecht</h3>
+          <div class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+          <blockquote>It was a lovely weekend away. Sandra met us with a lovely smile when we arrived. We felt so welcome. So peaceful and quiet with the animals roaming around our chalet. At night the sound of Jackals…</blockquote>
+          <footer>Google review<span>5 years ago</span></footer>
+        </article>
+        <article class="rv">
+          <h3>Patty Vermaak</h3>
+          <div class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+          <blockquote>We spent an unforgettable week at Bonwa Phala Game Reserve. Our wonderful hosts, Avie &amp; Sandra spoilt us outrageously. The staff greeted us with warm smiles and pandered to our every need. Delicious…</blockquote>
+          <footer>Google review<span>5 years ago</span></footer>
+        </article>
+        <article class="rv">
+          <h3>Melt Van Niekerk</h3>
+          <div class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+          <blockquote>Unforgettable. We had a hunting trip. Our guides were professional and well trained. The hunting accommodation is well planned and comfortable. Having a warm shower is a bonus on cold days like we…</blockquote>
+          <footer>Google review<span>5 years ago</span></footer>
+        </article>
+        <article class="rv">
+          <h3>Chris Coetzee</h3>
+          <div class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+          <blockquote>I was there with friends and had a amazing weekend. We stayed in the bush- camp, fully equipped, very neat and clean, with a real wild nature atmosphere. The hosts , Awie and Sandra, welcomed us,…</blockquote>
+          <footer>Google review<span>4 years ago</span></footer>
+        </article>
+      </div>
+      <p class="rv-note wrap">Excerpts from guest reviews on Google.</p>
+    </div>
+  </section>
+
+  <section class="and" aria-hidden="true">
+    <div class="stick and-stick">
+      <p class="and-line" id="andLine"><b>And</b> let’s go wild</p>
+      <div class="wipe"><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <h2 class="fit" data-fit=""><span>Come stay with us</span></h2>
+    <div class="contact">
+      <div class="mail-row">
+        <a class="mail" id="mailText" href="mailto:bookings@bonwaphala.africa">bookings@bonwaphala.africa</a>
+        <button class="pill pill-ink" type="button" id="copyMail"><span>Copy email</span></button>
+      </div>
+      <div class="contact-lines">
+        <p>WhatsApp Laruchelle <b><a href="https://wa.me/27761300915" target="_blank" rel="noopener">076 130 0915</a></b></p>
+        <p>Call <b><a href="tel:+27823943247">+27 82 394 3247</a></b></p>
+      </div>
+      <p class="addr">R516, Thabazimbi Road, Bela-Bela, Limpopo</p>
+    </div>
+    <div class="socials">
+      <a href="https://www.instagram.com/bonwaphalalodge/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico" aria-hidden="true"><use href="#l-instagram"/></svg></a>
+      <a href="https://www.facebook.com/BonwaPhalaGameLodge/" target="_blank" rel="noopener" aria-label="Facebook"><svg class="ico" aria-hidden="true"><use href="#l-facebook"/></svg></a>
+      <a href="https://wa.me/27761300915" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Bonwa+Phala+Game+Lodge+Bela-Bela" target="_blank" rel="noopener" aria-label="Directions on Google Maps"><svg class="ico" aria-hidden="true"><use href="#l-map-pin"/></svg></a>
+    </div>
+    <a class="mark" href="#top" aria-label="Bonwa Phala Game Lodge, back to top">
+      <img src="img/logo.png" width="595" height="361" alt="Bonwa Phala Game Lodge" loading="lazy">
+    </a>
+    <div class="legal">
+      <nav aria-label="Legal">
+        <a href="https://www.bonwaphala.africa/terms-conditions/" target="_blank" rel="noopener">Terms</a>
+        <a href="https://www.bonwaphala.africa/privacy-statement-za/" target="_blank" rel="noopener">Privacy</a>
+        <a href="https://www.bonwaphala.africa/cookie-policy-za/" target="_blank" rel="noopener">Cookies</a>
+      </nav>
+      <span>Bela-Bela · Limpopo · South Africa</span>
+      <span>© 2026 Bonwa Phala Game Lodge</span>
+    </div>
   </div>
+</footer>
+
+<div class="book" id="book" hidden>
+  <div class="book-scrim" data-close=""></div>
+  <form class="book-card" id="bookForm" role="dialog" aria-modal="true" aria-labelledby="bookTitle" novalidate>
+    <div class="book-head">
+      <h2 id="bookTitle">Plan your stay</h2>
+      <button class="x" type="button" data-close="" aria-label="Close"><svg><use href="#i-x"/></svg></button>
+      <p>Pick a lodge and your dates, then send the enquiry to Laruchelle on WhatsApp or by email.</p>
+    </div>
+    <div class="book-body">
+      <fieldset class="lodge-pick">
+        <legend>Lodge</legend>
+        <label><input type="radio" name="lodge" id="lodgeMain" value="main" checked><span class="opt"><b>Main Lodge</b><small>Up to 30 guests · R12,000 a night</small></span></label>
+        <label><input type="radio" name="lodge" id="lodgeBush" value="bush"><span class="opt"><b>Bush Lodge</b><small>16 to 20 guests · R6,000 a night</small></span></label>
+      </fieldset>
+      <div class="trio">
+        <label class="fld"><span>Arrival</span><input type="date" id="arrive"></label>
+        <label class="fld"><span>Nights</span><input type="number" id="nights" min="1" max="60" value="2" inputmode="numeric"></label>
+        <label class="fld"><span>Guests</span><input type="number" id="guests" min="1" max="200" value="12" inputmode="numeric"></label>
+      </div>
+      <p class="cap-note" id="capNote" hidden></p>
+      <label class="fld"><span>Occasion</span>
+        <select id="occasion">
+          <option>Leisure stay</option>
+          <option>Wedding</option>
+          <option>Conference or retreat</option>
+          <option>Celebration</option>
+          <option>Photographic safari</option>
+          <option>Hunting package</option>
+        </select>
+      </label>
+      <label class="fld"><span>Your name</span><input type="text" id="gname" autocomplete="name" placeholder="First and last name"></label>
+      <label class="fld"><span>Anything else</span><textarea id="gmsg" rows="3" placeholder="Catering, game drives, dietary needs…"></textarea></label>
+      <div class="est" aria-live="polite">
+        <span class="est-k">Lodge rate</span>
+        <strong id="est">R24,000</strong>
+        <small id="estNote">2 nights × R12,000 for exclusive use of the Main Lodge.</small>
+      </div>
+      <div class="actions">
+        <a class="pill pill-ink" id="waLink" href="https://wa.me/27761300915" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Send on WhatsApp</a>
+        <a class="pill pill-line" id="mailLink" href="mailto:bookings@bonwaphala.africa">Send by email</a>
+        <button class="pill pill-line" type="button" id="copyBtn">Copy enquiry</button>
+      </div>
+      <textarea class="copy-fallback" id="copyFallback" aria-label="Enquiry text to copy" readonly hidden></textarea>
+      <p class="fine">Enquiries go to <span>bookings@bonwaphala.africa</span>. Rates are for exclusive use of the lodge. Catering is available on request.</p>
+    </div>
+  </form>
 </div>
 
 <script>
-/* ================= CONFIG — edit these! ================= */
-const CONFIG = {
-  herName: "Khusela",
-  subLine: "Before you answer, know this: you make every ordinary day feel like the best one yet.",
-  successLine: "Since the day we met, my life has completely changed for the better. I’m tired of leaving ‘what ifs’ on the table. I want all of you — your bad days, your dreams, and your quirks. I am choosing you today, tomorrow, and every day after that, and I’m fully committed to building a beautiful future together.",
-  taunts: [
-    "Nice try 😏",
-    "That button is broken, promise.",
-    "Are you SURE about that?",
-    "The universe says no to your no.",
-    "You can't catch me! 😝",
-    "The Yes button is getting lonely...",
-    "Okay now you're just playing hard to get.",
-    "Even the button knows the answer is yes. 💘"
-  ]
-};
-/* ========================================================= */
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const ease = t => 1 - Math.pow(1 - t, 3);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canHover = matchMedia('(hover: hover)').matches;
+  const wide = () => innerWidth > 860;
+  let H = innerHeight;
 
-/* Convert any emoji in a string to Apple-style emoji images */
-const EMOJI_RE = /(\p{Extended_Pictographic}(?:\uFE0F|\u200D\p{Extended_Pictographic})*)/gu;
-function appleize(str){
-  return str.replace(EMOJI_RE, m =>
-    `<img class="apple-emoji" src="https://emojicdn.elk.sh/${encodeURIComponent(m)}?style=apple" alt="${m}">`);
-}
+  /* ---------- hero slideshow ---------- */
+  const slides = $$('.hero-media img');
+  const dots = $$('#heroDots button');
+  const caps = ['Reception at dusk', 'Reception', 'Chalet'];
+  let cur = 0, timer = null;
+  function show(i) {
+    slides[cur].classList.remove('on');
+    dots[cur].setAttribute('aria-current', 'false');
+    cur = (i + slides.length) % slides.length;
+    slides[cur].loading = 'eager';
+    slides[cur].classList.add('on');
+    dots[cur].setAttribute('aria-current', 'true');
+    $('#heroCap').textContent = caps[cur];
+  }
+  function auto() { clearInterval(timer); if (!reduce) timer = setInterval(() => show(cur + 1), 6500); }
+  dots.forEach((d, i) => d.addEventListener('click', () => { show(i); auto(); }));
+  auto();
 
-document.getElementById('herName').textContent = CONFIG.herName;
-document.getElementById('subLine').textContent = CONFIG.subLine;
-document.getElementById('successLine').textContent = CONFIG.successLine;
+  /* ---------- menu ---------- */
+  const header = $('#siteHeader'), menu = $('#menu'), menuBtn = $('#menuBtn');
+  let menuOpen = false;
+  function setMenu(open) {
+    menuOpen = open;
+    menu.classList.toggle('open', open);
+    header.classList.toggle('menu-open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.querySelector('span').textContent = open ? 'Close' : 'Menu';
+    document.documentElement.classList.toggle('locked', open && innerWidth <= 760);
+    if (open) header.classList.remove('hide');
+  }
+  menuBtn.addEventListener('click', () => setMenu(!menuOpen));
+  if (canHover) {
+    menu.addEventListener('mouseenter', () => { if (innerWidth > 760) setMenu(true); });
+    menu.addEventListener('mouseleave', () => { if (innerWidth > 760) setMenu(false); });
+  }
+  $$('.menu-links a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('click', e => { if (menuOpen && !menu.contains(e.target)) setMenu(false); });
 
-const noBtn = document.getElementById('noBtn');
-const yesBtn = document.getElementById('yesBtn');
-const taunt = document.getElementById('taunt');
-let dodges = 0;
-
-function flee(){
-  dodges++;
-  noBtn.classList.add('fleeing');
-  const pad = 20;
-  const bw = noBtn.offsetWidth, bh = noBtn.offsetHeight;
-  const x = pad + Math.random() * (window.innerWidth - bw - pad*2);
-  const y = pad + Math.random() * (window.innerHeight - bh - pad*2);
-  noBtn.style.left = x + 'px';
-  noBtn.style.top = y + 'px';
-
-  taunt.innerHTML = appleize(CONFIG.taunts[Math.min(dodges-1, CONFIG.taunts.length-1)]);
-
-  // Yes grows, No shrinks — resistance is futile
-  const grow = Math.min(1 + dodges * 0.12, 2.1);
-  yesBtn.style.transform = `scale(${grow})`;
-  const shrink = Math.max(1 - dodges * 0.07, 0.55);
-  noBtn.style.scale = shrink;
-  if (dodges >= 10) { noBtn.innerHTML = appleize("fine, YES 💗"); noBtn.onclick = celebrate; }
-}
-
-noBtn.addEventListener('mouseenter', flee);
-noBtn.addEventListener('touchstart', (e)=>{ e.preventDefault(); flee(); }, {passive:false});
-noBtn.addEventListener('click', (e)=>{ if(dodges < 10){ e.preventDefault(); flee(); } });
-
-/* ---------- confetti ---------- */
-const canvas = document.getElementById('confetti');
-const ctx = canvas.getContext('2d');
-let pieces = [], raf;
-function resize(){ canvas.width = innerWidth; canvas.height = innerHeight; }
-addEventListener('resize', resize); resize();
-
-const COLORS = ['#FFF4E9','#FFB86B','#7BE0C3','#FF4F8B','#FFD166','#B8175C'];
-function spawnConfetti(n){
-  for(let i=0;i<n;i++){
-    pieces.push({
-      x: Math.random()*canvas.width,
-      y: -20 - Math.random()*canvas.height*0.5,
-      w: 6+Math.random()*8, h: 8+Math.random()*10,
-      vy: 2+Math.random()*3.5, vx: -1.5+Math.random()*3,
-      rot: Math.random()*Math.PI, vr: -0.1+Math.random()*0.2,
-      color: COLORS[Math.floor(Math.random()*COLORS.length)],
-      heart: Math.random() < 0.18
+  /* ---------- fitted headings ---------- */
+  function fitAll() {
+    $$('[data-fit]').forEach(el => {
+      const inner = el.firstElementChild;
+      el.style.fontSize = '100px';
+      const w = inner.getBoundingClientRect().width;
+      const fs = 100 * el.clientWidth / w * 0.995;
+      el.style.fontSize = Math.min(fs, H * 0.34) + 'px';
     });
   }
-}
-function draw(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  pieces.forEach(p=>{
-    p.x+=p.vx; p.y+=p.vy; p.rot+=p.vr;
-    ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot);
-    if(p.heart && appleHeart.complete && appleHeart.naturalWidth){
-      ctx.drawImage(appleHeart, -9, -9, 18, 18);
-    } else {
-      ctx.fillStyle=p.color; ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
-    }
-    ctx.restore();
+
+  /* ---------- scattered review heading ---------- */
+  const chars = $('.scatter .chars');
+  (function splitScatter() {
+    let seed = 11;
+    const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const words = chars.textContent.split(' ');
+    chars.textContent = '';
+    words.forEach((word, wi) => {
+      const w = document.createElement('span');
+      w.className = 'w';
+      for (const ch of word) {
+        const s = document.createElement('span');
+        s.className = 'ch';
+        s.textContent = ch;
+        s.style.setProperty('--dx', ((rnd() - .5) * .7).toFixed(2));
+        s.style.setProperty('--dy', ((rnd() - .5) * 2.6).toFixed(2));
+        s.style.setProperty('--r', ((rnd() - .5) * 30).toFixed(1));
+        w.appendChild(s);
+      }
+      chars.appendChild(w);
+      if (wi < words.length - 1) chars.appendChild(document.createTextNode(' '));
+    });
+  })();
+
+  /* ---------- count-up numbers ---------- */
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    io.unobserve(e.target);
+    if (reduce) return;
+    const num = e.target.querySelector('.num'), to = +e.target.dataset.count;
+    const t0 = performance.now(), d = to > 100 ? 1400 : 1000;
+    const step = t => { const k = clamp((t - t0) / d); num.textContent = Math.round(to * ease(k)); if (k < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }), { threshold: .6 });
+  $$('.stat-n').forEach(n => io.observe(n));
+
+  /* ---------- scroll scenes ---------- */
+  const hero = $('#top');
+  const cards = $$('.card');
+  const vibes = $('.vibes'), vMid = $('.v-mid'), vBars = $$('.vibes .wipe i');
+  const andSec = $('.and'), andLine = $('#andLine'), aBars = $$('.and .wipe i');
+  const rv = $('#reviews'), rvStick = $('#rvStick'), track = $('#rvTrack');
+  const squash = $('.squash');
+  let lastY = scrollY, rvOver = 0;
+
+  const sceneP = el => { const r = el.getBoundingClientRect(); return clamp(-r.top / Math.max(1, r.height - H)); };
+  const bars = (list, p, start) => list.forEach((b, i) => {
+    const t = ease(clamp((p - start - i * .04) / .18));
+    b.style.transform = `translateY(${((1 - t) * 101).toFixed(2)}%)`;
+    if (i === 0) b.style.clipPath = `polygon(${(22 * (1 - t)).toFixed(1)}% 0,100% 0,100% 100%,0 100%)`;
   });
-  pieces = pieces.filter(p=>p.y < canvas.height+30);
-  raf = pieces.length ? requestAnimationFrame(draw) : null;
-}
 
-function celebrate(){
-  document.getElementById('question').style.display='none';
-  noBtn.style.display='none';
-  document.getElementById('success').style.display='block';
-  spawnConfetti(260);
-  if(!raf) draw();
-  setTimeout(()=>{ spawnConfetti(160); if(!raf) draw(); }, 900);
-  setTimeout(()=>{ spawnConfetti(160); if(!raf) draw(); }, 1900);
-}
-yesBtn.addEventListener('click', celebrate);
+  function sizeReviews() {
+    if (!wide() || reduce) { rv.style.height = ''; rvOver = 0; return; }
+    rvOver = Math.max(0, track.scrollWidth - innerWidth);
+    rv.style.height = (rvStick.offsetHeight + rvOver) + 'px';
+  }
 
-/* preloaded Apple heart for canvas confetti */
-const appleHeart = new Image();
-appleHeart.crossOrigin = 'anonymous';
-appleHeart.src = 'https://emojicdn.elk.sh/%E2%9D%A4%EF%B8%8F?style=apple';
+  function frame() {
+    const y = scrollY;
+    const pastHero = y > hero.offsetHeight - 140;
+    header.classList.toggle('stuck', pastHero);
+    if (pastHero && !menuOpen) {
+      if (y > lastY + 4) header.classList.add('hide');
+      else if (y < lastY - 4) header.classList.remove('hide');
+    } else header.classList.remove('hide');
+    lastY = y;
 
-/* ---------- floating hearts backdrop (Apple-style images) ---------- */
-const HEARTS = ['💗','💖','💕','🩷','❤️'];
-for(let i=0;i<16;i++){
-  const s = document.createElement('span');
-  s.className='heart-float';
-  const size = 14 + Math.random()*26;
-  s.innerHTML = `<img class="apple-emoji" style="width:${size}px;height:${size}px" src="https://emojicdn.elk.sh/${encodeURIComponent(HEARTS[i % HEARTS.length])}?style=apple" alt="">`;
-  s.style.left = Math.random()*100 + 'vw';
-  s.style.animationDuration = (9 + Math.random()*12) + 's';
-  s.style.animationDelay = (-Math.random()*12) + 's';
-  document.body.appendChild(s);
-}
+    if (reduce) return;
+
+    if (wide()) cards.forEach((c, i) => {
+      const panel = c.firstElementChild;
+      const top = c.getBoundingClientRect().top;
+      const inP = i === 0 ? 1 : clamp(1 - top / H);
+      const next = cards[i + 1];
+      const outP = next ? clamp(1 - next.getBoundingClientRect().top / H) : 0;
+      const s = (.9 + .1 * ease(inP)) * (1 - .05 * outP);
+      panel.style.transform = `scale(${s.toFixed(4)})`;
+      panel.style.setProperty('--fade', (1 - .7 * outP).toFixed(3));
+    });
+
+    const vp = sceneP(vibes);
+    vibes.style.setProperty('--p', ease(clamp(vp / .7)).toFixed(4));
+    const maxFs = innerWidth / 5.6;
+    vMid.style.setProperty('--fs', (28 + (maxFs - 28) * ease(clamp(vp / .68))).toFixed(1));
+    bars(vBars, vp, .62);
+
+    const ap = sceneP(andSec);
+    const dist = Math.max(0, andLine.offsetWidth - innerWidth + 40);
+    andLine.style.transform = `translateX(${(-dist * clamp(ap / .66)).toFixed(1)}px)`;
+    bars(aBars, ap, .62);
+
+    const r = rv.getBoundingClientRect();
+    const q = clamp((H - r.top) / (H * .8));
+    chars.style.setProperty('--k', (1 - ease(q)).toFixed(3));
+    if (wide() && rvOver) track.style.transform = `translateX(${(-rvOver * sceneP(rv)).toFixed(1)}px)`;
+    else track.style.transform = '';
+
+    const sr = squash.getBoundingClientRect();
+    squash.style.setProperty('--sy', (.26 + .74 * ease(clamp((H - sr.top) / (H * .62)))).toFixed(3));
+  }
+  let ticking = false;
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; frame(); }); } };
+  addEventListener('scroll', onScroll, { passive: true });
+
+  let lastW = innerWidth;
+  function layout() { H = innerHeight; fitAll(); sizeReviews(); frame(); }
+  addEventListener('resize', () => {
+    if (innerWidth !== lastW) { lastW = innerWidth; layout(); }
+    else { H = innerHeight; onScroll(); }
+  });
+  layout();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+  addEventListener('load', layout);
+
+  /* ---------- copy helper ---------- */
+  function copyText(text, btn, fallback) {
+    const label = btn.querySelector('span') || btn;
+    const done = msg => { const old = label.dataset.l || label.textContent; label.dataset.l = old; label.textContent = msg; setTimeout(() => { label.textContent = old; }, 2200); };
+    const fail = () => {
+      if (fallback) { fallback.hidden = false; fallback.value = text; fallback.focus(); fallback.select(); done('Select and copy'); }
+      else { const sel = getSelection(), range = document.createRange(); range.selectNodeContents($('#mailText')); sel.removeAllRanges(); sel.addRange(range); done('Selected'); }
+    };
+    try { navigator.clipboard.writeText(text).then(() => done('Copied'), fail); } catch (e) { fail(); }
+  }
+  $('#copyMail').addEventListener('click', e => copyText('bookings@bonwaphala.africa', e.currentTarget));
+
+  /* ---------- booking panel ---------- */
+  const book = $('#book'), form = $('#bookForm');
+  const f = id => $('#' + id);
+  const LODGES = { main: { name: 'Main Lodge', rate: 12000, cap: 30 }, bush: { name: 'Bush Lodge', rate: 6000, cap: 20 } };
+  const rand = n => 'R' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const today = new Date();
+  f('arrive').min = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, '0'), String(today.getDate()).padStart(2, '0')].join('-');
+  const nice = v => { const [y, m, d] = v.split('-').map(Number); return new Date(y, m - 1, d).toLocaleDateString('en-ZA', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }); };
+
+  function state() {
+    const L = LODGES[form.elements.lodge.value] || LODGES.main;
+    const nights = clamp(parseInt(f('nights').value, 10) || 1, 1, 60);
+    const guests = clamp(parseInt(f('guests').value, 10) || 1, 1, 200);
+    return { L, nights, guests };
+  }
+  function compose() {
+    const { L, nights, guests } = state();
+    const lines = [
+      `Hi Bonwa Phala! I'd like to enquire about the ${L.name} (exclusive use).`,
+      `Arrival: ${f('arrive').value ? nice(f('arrive').value) : 'Flexible'} · ${nights} night${nights > 1 ? 's' : ''}`,
+      `Guests: ${guests}`,
+      `Occasion: ${f('occasion').value}`
+    ];
+    const name = f('gname').value.trim(), msg = f('gmsg').value.trim();
+    if (name) lines.push(`Name: ${name}`);
+    if (msg) lines.push('', msg);
+    return lines.join('\n');
+  }
+  function update() {
+    const { L, nights, guests } = state();
+    f('est').textContent = rand(L.rate * nights);
+    f('estNote').textContent = `${nights} night${nights > 1 ? 's' : ''} × ${rand(L.rate)} for exclusive use of the ${L.name}.`;
+    const over = guests > L.cap;
+    f('capNote').hidden = !over;
+    if (over) f('capNote').textContent = `The ${L.name} sleeps up to ${L.cap} guests.`;
+    f('waLink').href = 'https://wa.me/27761300915?text=' + encodeURIComponent(compose());
+    f('mailLink').href = 'mailto:bookings@bonwaphala.africa?subject=' + encodeURIComponent(`Booking enquiry: ${L.name}`) + '&body=' + encodeURIComponent(compose());
+    f('copyFallback').hidden = true;
+  }
+  form.addEventListener('input', update);
+  form.addEventListener('change', update);
+  form.addEventListener('submit', e => e.preventDefault());
+  f('copyBtn').addEventListener('click', e => copyText(compose(), e.currentTarget, f('copyFallback')));
+
+  let returnTo = null;
+  function openBook(which) {
+    returnTo = document.activeElement;
+    if (which && LODGES[which]) form.elements.lodge.value = which;
+    setMenu(false);
+    book.hidden = false;
+    document.documentElement.classList.add('locked');
+    update();
+    setTimeout(() => (which ? f('arrive') : form.querySelector('input:checked')).focus(), 60);
+  }
+  function closeBook() {
+    book.hidden = true;
+    document.documentElement.classList.remove('locked');
+    if (returnTo && returnTo.focus) returnTo.focus();
+  }
+  $$('[data-book]').forEach(b => b.addEventListener('click', e => { e.stopPropagation(); openBook(b.dataset.book); }));
+  book.addEventListener('click', e => { if (e.target.closest('[data-close]')) closeBook(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { if (!book.hidden) closeBook(); else if (menuOpen) { setMenu(false); menuBtn.focus(); } }
+    if (e.key === 'Tab' && !book.hidden) {
+      const items = $$('button, a[href], input, select, textarea', form).filter(el => !el.hidden && el.offsetParent !== null);
+      const first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  update();
+})();
 </script>
-</body>
-</html>
+
+</body></html>
